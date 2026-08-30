@@ -33,14 +33,17 @@ paper are restricted to the Commons.
 
 ## Files
 
+Two independent Hugging Face datasets:
+
 ```
-corpus/
-  speeches/speeches_YYYY.parquet   # 201 files, one per year
-  debates/debates_YYYY.parquet     # 201 files, one per year
-  house_members_gendered.parquet   # unified MP database with gender
-womens_rights/
-  corpus_with_context.parquet       # 6,531 speeches + context windows
-  speech_classifications.parquet    # LLM stance and sexism labels
+omarkhursheed/hansard-gendered-corpus
+  corpus/speeches/speeches_YYYY.parquet   # 201 files, one per year
+  corpus/debates/debates_YYYY.parquet     # 201 files, one per year
+  corpus/house_members_gendered.parquet   # unified MP database with gender
+
+omarkhursheed/two-centuries-of-sexism
+  speech_classifications.parquet    # 6,531 speeches, LLM stance and sexism labels
+  corpus_with_context.parquet       # same speeches + context windows
 ```
 
 ## Speeches schema
@@ -77,9 +80,16 @@ normalized names, canonical names, person ids, and genders, plus aggregate
 counts (confirmed_mps, male_mps, female_mps, gender_ratio, has_female,
 has_male).
 
-## Women's rights subset schema
+## Classified dataset schema
 
-`corpus_with_context.parquet` (6,531 rows): speech_id, debate_id, target_text,
+The classified dataset is standalone: it carries its own text and metadata.
+`speech_id` (s0001-s6531) is an opaque identifier linking its files to each
+other and to the annotation and label files in this repository; it is not a
+key into the corpus dataset. The dataset was retrieved from the corpus with
+the released two-tier keyword extractor (`scripts/extraction/`); re-run the
+extraction pipeline to re-derive it from the corpus.
+
+`corpus_with_context.parquet` (6,531 rows): speech_id, target_text,
 preceding_speeches, following_speeches, context_text (up to 5 speeches either
 side of the target).
 
@@ -103,11 +113,6 @@ Labels were produced by Claude Sonnet 4.6 with a two-pass prompt (stance
 first; sexism only for non-irrelevant speeches), validated against a
 300-speech expert-annotated set (stance kappa 0.711 vs human consensus;
 see the paper for full validation detail including sexism agreement).
-
-Subset speech_ids join the corpus/ files directly for 6,501 of 6,531
-speeches; the remaining 30 have slightly shifted speech numbering within the
-same debate_id (speech-segmentation differences between corpus builds) and
-can be located by matching target_text within the debate.
 
 ## Provenance
 

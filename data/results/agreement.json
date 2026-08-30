@@ -108,7 +108,36 @@
     "both": 31,
     "items": [
       {
-        "speech_id": "0ee1a7659dd2eadb_speech_9",
+        "speech_id": "s0268",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          true,
+          false
+        ],
+        "benevolent": [
+          true,
+          false
+        ],
+        "hostile_subs": [
+          [
+            "heterosexual_hostility"
+          ],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "protective_paternalism"
+          ],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s0393",
         "stance": [
           "for",
           "for"
@@ -119,61 +148,7 @@
         ],
         "benevolent": [
           true,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "protective_paternalism"
-          ],
-          [
-            "complementary_gender_differentiation"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "0f88bb788afd8396_speech_5",
-        "stance": [
-          "for",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
           false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "15afbf4e6cc3a3a3_speech_26",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          true,
-          true
         ],
         "hostile_subs": [
           [],
@@ -183,369 +158,15 @@
           [
             "complementary_gender_differentiation"
           ],
-          [
-            "complementary_gender_differentiation",
-            "heterosexual_intimacy"
-          ]
+          []
         ],
         "stance_differs": false,
         "sexism_differs": true
       },
       {
-        "speech_id": "1b057ed1ecb08819_speech_26",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "1c6c629ca2e5de13_speech_151",
-        "stance": [
-          "both",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "2131b003a2d67dca_speech_35",
-        "stance": [
-          "both",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "2131b003a2d67dca_speech_51",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "heterosexual_intimacy"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "26f0412e9999372e_speech_20",
+        "speech_id": "s0587",
         "stance": [
           "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "26f0412e9999372e_speech_27",
-        "stance": [
-          "for",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "26f0412e9999372e_speech_31",
-        "stance": [
-          "for",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "2ac0601bdcf43fce_speech_2",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "2e475f8babe40200_speech_91",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "324a69fb7724f349_speech_9",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "heterosexual_intimacy"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "33e9deef3a60406a_speech_47",
-        "stance": [
-          "both",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "34f7df4ac683bc08_speech_55",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "3a2033760f94a1fb_speech_4",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "3a2033760f94a1fb_speech_93",
-        "stance": [
-          "against",
           "both"
         ],
         "hostile": [
@@ -553,89 +174,6 @@
           false
         ],
         "benevolent": [
-          true,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "protective_paternalism"
-          ],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "3c3eb10a49440a62_speech_50",
-        "stance": [
-          "both",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "3d6f378a6f182b98_speech_56",
-        "stance": [
-          "both",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "3d6f378a6f182b98_speech_59",
-        "stance": [
-          "both",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
           false,
           false
         ],
@@ -651,61 +189,98 @@
         "sexism_differs": false
       },
       {
-        "speech_id": "3dd6bff7d570f903_speech_12",
+        "speech_id": "s0647",
+        "stance": [
+          "against",
+          "against"
+        ],
+        "hostile": [
+          true,
+          true
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [
+            "dominative_paternalism"
+          ],
+          [
+            "competitive_gender_differentiation"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "heterosexual_intimacy"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s0767",
         "stance": [
           "for",
           "for"
         ],
         "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
           true,
           false
         ],
+        "benevolent": [
+          false,
+          true
+        ],
         "hostile_subs": [
-          [],
+          [
+            "dominative_paternalism"
+          ],
           []
         ],
         "benevolent_subs": [
+          [],
           [
             "protective_paternalism"
-          ],
-          []
+          ]
         ],
         "stance_differs": false,
         "sexism_differs": true
       },
       {
-        "speech_id": "3dd6bff7d570f903_speech_70",
+        "speech_id": "s0833",
         "stance": [
-          "for",
-          "for"
+          "against",
+          "against"
         ],
         "hostile": [
           false,
-          false
+          true
         ],
         "benevolent": [
-          true,
-          false
+          false,
+          true
         ],
         "hostile_subs": [
           [],
-          []
+          [
+            "dominative_paternalism"
+          ]
         ],
         "benevolent_subs": [
+          [],
           [
-            "complementary_gender_differentiation"
-          ],
-          []
+            "complementary_gender_differentiation",
+            "heterosexual_intimacy"
+          ]
         ],
         "stance_differs": false,
         "sexism_differs": true
       },
       {
-        "speech_id": "3e4a9b5ef367a1b5_speech_11",
+        "speech_id": "s0878",
         "stance": [
           "irrelevant",
           "for"
@@ -732,34 +307,37 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "3ed8f145f34bdd32_speech_33",
+        "speech_id": "s0917",
         "stance": [
-          "for",
-          "for"
+          "against",
+          "against"
         ],
         "hostile": [
+          true,
+          true
+        ],
+        "benevolent": [
           false,
           false
         ],
-        "benevolent": [
-          true,
-          false
-        ],
         "hostile_subs": [
-          [],
-          []
+          [
+            "dominative_paternalism"
+          ],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
         ],
         "benevolent_subs": [
-          [
-            "protective_paternalism"
-          ],
+          [],
           []
         ],
         "stance_differs": false,
         "sexism_differs": true
       },
       {
-        "speech_id": "3ede8b70e9f6205a_speech_2",
+        "speech_id": "s0933",
         "stance": [
           "for",
           "for"
@@ -779,7 +357,6 @@
         "benevolent_subs": [
           [],
           [
-            "complementary_gender_differentiation",
             "protective_paternalism"
           ]
         ],
@@ -787,9 +364,64 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "3ede8b70e9f6205a_speech_47",
+        "speech_id": "s0979",
+        "stance": [
+          "irrelevant",
+          "against"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s1016",
         "stance": [
           "both",
+          "both"
+        ],
+        "hostile": [
+          true,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [
+            "competitive_gender_differentiation"
+          ],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s1041",
+        "stance": [
+          "for",
           "both"
         ],
         "hostile": [
@@ -798,81 +430,26 @@
         ],
         "benevolent": [
           false,
-          true
+          false
         ],
         "hostile_subs": [
           [],
           [
+            "competitive_gender_differentiation",
             "dominative_paternalism"
           ]
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "413982fe083841c3_speech_147",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
         ],
         "benevolent_subs": [
           [],
           []
         ],
         "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "41bb7fd4df6325c0_speech_7",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          true,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [
-            "dominative_paternalism"
-          ],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
         "sexism_differs": true
       },
       {
-        "speech_id": "45ebbcd84042ee51_speech_10",
+        "speech_id": "s1092",
         "stance": [
-          "for",
+          "irrelevant",
           "irrelevant"
         ],
         "hostile": [
@@ -880,7 +457,7 @@
           false
         ],
         "benevolent": [
-          false,
+          true,
           false
         ],
         "hostile_subs": [
@@ -888,78 +465,18 @@
           []
         ],
         "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "49997b032cf03687_speech_29",
-        "stance": [
-          "irrelevant",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
           [
             "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "4b5b804d8c04171f_speech_13",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          true,
-          true
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
           ],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
+          []
         ],
         "stance_differs": false,
         "sexism_differs": true
       },
       {
-        "speech_id": "4b5b804d8c04171f_speech_41",
+        "speech_id": "s1134",
         "stance": [
-          "irrelevant",
+          "for",
           "for"
         ],
         "hostile": [
@@ -980,13 +497,47 @@
             "complementary_gender_differentiation"
           ]
         ],
-        "stance_differs": true,
+        "stance_differs": false,
         "sexism_differs": true
       },
       {
-        "speech_id": "4bc407e5aed58c26_speech_44",
+        "speech_id": "s1157",
         "stance": [
-          "irrelevant",
+          "against",
+          "against"
+        ],
+        "hostile": [
+          true,
+          true
+        ],
+        "benevolent": [
+          true,
+          true
+        ],
+        "hostile_subs": [
+          [
+            "dominative_paternalism"
+          ],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [
+            "protective_paternalism"
+          ],
+          [
+            "complementary_gender_differentiation"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s1251",
+        "stance": [
+          "for",
           "for"
         ],
         "hostile": [
@@ -995,7 +546,7 @@
         ],
         "benevolent": [
           false,
-          false
+          true
         ],
         "hostile_subs": [
           [],
@@ -1003,13 +554,15 @@
         ],
         "benevolent_subs": [
           [],
-          []
+          [
+            "complementary_gender_differentiation"
+          ]
         ],
-        "stance_differs": true,
-        "sexism_differs": false
+        "stance_differs": false,
+        "sexism_differs": true
       },
       {
-        "speech_id": "4f67cf9b3975f713_speech_2",
+        "speech_id": "s1300",
         "stance": [
           "irrelevant",
           "against"
@@ -1034,17 +587,17 @@
         "sexism_differs": false
       },
       {
-        "speech_id": "51b61f361c8bb86d_speech_40",
+        "speech_id": "s1368",
         "stance": [
           "for",
-          "irrelevant"
+          "both"
         ],
         "hostile": [
           false,
           false
         ],
         "benevolent": [
-          true,
+          false,
           false
         ],
         "hostile_subs": [
@@ -1052,17 +605,14 @@
           []
         ],
         "benevolent_subs": [
-          [
-            "complementary_gender_differentiation",
-            "protective_paternalism"
-          ],
+          [],
           []
         ],
         "stance_differs": true,
-        "sexism_differs": true
+        "sexism_differs": false
       },
       {
-        "speech_id": "51d23280d36f987a_speech_1",
+        "speech_id": "s1588",
         "stance": [
           "for",
           "for"
@@ -1089,13 +639,69 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "5545baf42a9a4f31_speech_5",
+        "speech_id": "s1677",
         "stance": [
           "against",
           "against"
         ],
         "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
           true,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [
+            "protective_paternalism"
+          ],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s1729",
+        "stance": [
+          "against",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s1731",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
           false
         ],
         "benevolent": [
@@ -1103,9 +709,7 @@
           true
         ],
         "hostile_subs": [
-          [
-            "dominative_paternalism"
-          ],
+          [],
           []
         ],
         "benevolent_subs": [
@@ -1114,11 +718,11 @@
             "protective_paternalism"
           ]
         ],
-        "stance_differs": false,
+        "stance_differs": true,
         "sexism_differs": true
       },
       {
-        "speech_id": "5b522a2dbac0f6c9_speech_11",
+        "speech_id": "s1763",
         "stance": [
           "for",
           "against"
@@ -1151,7 +755,7 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "5b522a2dbac0f6c9_speech_36",
+        "speech_id": "s1781",
         "stance": [
           "against",
           "against"
@@ -1185,232 +789,9 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "62774dad0b34b48f_speech_34",
-        "stance": [
-          "for",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "63ddfe5c014f8b43_speech_7",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "66d5bafefd29b5a2_speech_2",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          true,
-          false
-        ],
-        "benevolent": [
-          true,
-          false
-        ],
-        "hostile_subs": [
-          [
-            "heterosexual_hostility"
-          ],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "protective_paternalism"
-          ],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "694e45f7919ba49c_speech_14",
+        "speech_id": "s1819",
         "stance": [
           "against",
-          "against"
-        ],
-        "hostile": [
-          true,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [
-            "dominative_paternalism"
-          ],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "694e45f7919ba49c_speech_6",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "6af0e5ba4a5ad862_speech_2",
-        "stance": [
-          "for",
-          "both"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          true,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "heterosexual_hostility"
-          ]
-        ],
-        "benevolent_subs": [
-          [
-            "complementary_gender_differentiation"
-          ],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "6bcc12c3c4c1a149_speech_23",
-        "stance": [
-          "both",
-          "against"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "757a4a4c3e4eeea3_speech_31",
-        "stance": [
-          "for",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "773750571ef0c91c_speech_15",
-        "stance": [
-          "irrelevant",
           "for"
         ],
         "hostile": [
@@ -1433,230 +814,7 @@
         "sexism_differs": false
       },
       {
-        "speech_id": "7a226f3a743ce50e_speech_13",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "7df948d12a814280_speech_6",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "7e32e5c9ea8f724a_speech_112",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "7e32e5c9ea8f724a_speech_135",
-        "stance": [
-          "for",
-          "both"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "832aa32eb205e34a_speech_4",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          true,
-          true
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [
-            "dominative_paternalism"
-          ],
-          [
-            "competitive_gender_differentiation"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "heterosexual_intimacy"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "832afba0b0ef440a_speech_241",
-        "stance": [
-          "for",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "8345fc912fadb010_speech_52",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "8af6c449fa0734a6_speech_33",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          true,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "complementary_gender_differentiation"
-          ],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "8b65a2bc50a4b3e6_speech_1",
+        "speech_id": "s1896",
         "stance": [
           "irrelevant",
           "both"
@@ -1681,1051 +839,7 @@
         "sexism_differs": false
       },
       {
-        "speech_id": "9345f42318632b92_speech_46",
-        "stance": [
-          "both",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "95f5872ffc883f8e_speech_11",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "964c95e5508abde6_speech_22",
-        "stance": [
-          "for",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "965f240b9341dda3_speech_16",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "98b5f9f6de49067f_speech_1",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "99df1ae9887577f4_speech_11",
-        "stance": [
-          "against",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "99df1ae9887577f4_speech_32",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          true,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "protective_paternalism"
-          ],
-          [
-            "complementary_gender_differentiation"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "9af0154633813603_speech_32",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "9b2518e611989498_speech_6",
-        "stance": [
-          "both",
-          "both"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "heterosexual_intimacy",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "9c584dce92571d11_speech_34",
-        "stance": [
-          "against",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "9f755e18db8c73d5_speech_1",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          true,
-          true
-        ],
-        "benevolent": [
-          true,
-          true
-        ],
-        "hostile_subs": [
-          [
-            "competitive_gender_differentiation"
-          ],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [
-            "complementary_gender_differentiation"
-          ],
-          [
-            "complementary_gender_differentiation",
-            "heterosexual_intimacy",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "9f755e18db8c73d5_speech_17",
-        "stance": [
-          "both",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "9f755e18db8c73d5_speech_23",
-        "stance": [
-          "irrelevant",
-          "both"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "a1beb83e3a2f0e57_speech_8",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "a1fdeae70416e142_speech_14",
-        "stance": [
-          "for",
-          "both"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "a3c828bcb745faeb_speech_14",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "a45c58b4f236513a_speech_100",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "complementary_gender_differentiation",
-            "heterosexual_intimacy"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "a63403d05360bc57_speech_41",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "aa02d9fa571cfa8a_speech_11",
-        "stance": [
-          "irrelevant",
-          "against"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "ad811667a42ddd21_speech_1",
-        "stance": [
-          "against",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "ae8e86c8278043d5_speech_132",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "ae8e86c8278043d5_speech_54",
-        "stance": [
-          "both",
-          "both"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "b3e861a3851150aa_speech_7",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          true,
-          true
-        ],
-        "benevolent": [
-          true,
-          true
-        ],
-        "hostile_subs": [
-          [
-            "dominative_paternalism"
-          ],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [
-            "protective_paternalism"
-          ],
-          [
-            "complementary_gender_differentiation"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "b7abe54ddb167d2a_speech_89",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          [
-            "heterosexual_intimacy"
-          ]
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "ba965327203c64c2_speech_10",
-        "stance": [
-          "against",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "bd0f2491947ab0bf_speech_72",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          true,
-          false
-        ],
-        "benevolent": [
-          true,
-          false
-        ],
-        "hostile_subs": [
-          [
-            "competitive_gender_differentiation"
-          ],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "complementary_gender_differentiation"
-          ],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "bdbb74b55a635a90_speech_27",
-        "stance": [
-          "irrelevant",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "be4cfc04493ab9a3_speech_15",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          true,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "complementary_gender_differentiation"
-          ],
-          [
-            "complementary_gender_differentiation",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "c2b7839a11a44460_speech_36",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "c2df4f3ec2f98dea_speech_1",
-        "stance": [
-          "irrelevant",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "cba645074a155837_speech_37",
-        "stance": [
-          "against",
-          "against"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          true,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [
-            "protective_paternalism"
-          ],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "cbfbcf62bdf432ee_speech_9",
-        "stance": [
-          "both",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "cc253c299c7c510a_speech_26",
-        "stance": [
-          "irrelevant",
-          "irrelevant"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          true,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "protective_paternalism"
-          ],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "ce27d0dfd93bdb43_speech_26",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          true,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "complementary_gender_differentiation"
-          ],
-          [
-            "complementary_gender_differentiation",
-            "heterosexual_intimacy",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "ceed0f48ff4c7daf_speech_1",
-        "stance": [
-          "for",
-          "both"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "d374cd17865b3d56_speech_2",
-        "stance": [
-          "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "dc9b948e1b979df2_speech_31",
-        "stance": [
-          "both",
-          "both"
-        ],
-        "hostile": [
-          true,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [
-            "competitive_gender_differentiation"
-          ],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "df0843e70b03d44f_speech_13",
-        "stance": [
-          "for",
-          "both"
-        ],
-        "hostile": [
-          false,
-          true
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          [
-            "competitive_gender_differentiation",
-            "dominative_paternalism"
-          ]
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "e0e9f838a113362b_speech_33",
+        "speech_id": "s1935",
         "stance": [
           "against",
           "against"
@@ -2754,7 +868,416 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "e152b4a0399906c2_speech_99",
+        "speech_id": "s1981",
+        "stance": [
+          "against",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s2001",
+        "stance": [
+          "against",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2013",
+        "stance": [
+          "against",
+          "both"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "protective_paternalism"
+          ],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2023",
+        "stance": [
+          "both",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2078",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "protective_paternalism"
+          ],
+          [
+            "complementary_gender_differentiation"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2095",
+        "stance": [
+          "both",
+          "against"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2102",
+        "stance": [
+          "irrelevant",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2116",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s2119",
+        "stance": [
+          "for",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2120",
+        "stance": [
+          "for",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2187",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s2190",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2194",
+        "stance": [
+          "both",
+          "both"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2260",
+        "stance": [
+          "against",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s2267",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "protective_paternalism"
+          ],
+          [
+            "complementary_gender_differentiation"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2299",
         "stance": [
           "for",
           "for"
@@ -2781,7 +1304,467 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "e174eab699d38356_speech_41",
+        "speech_id": "s2337",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "complementary_gender_differentiation"
+          ],
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2411",
+        "stance": [
+          "both",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s2424",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "heterosexual_intimacy"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2453",
+        "stance": [
+          "against",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2482",
+        "stance": [
+          "both",
+          "both"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2519",
+        "stance": [
+          "against",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "heterosexual_intimacy"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2560",
+        "stance": [
+          "against",
+          "against"
+        ],
+        "hostile": [
+          true,
+          true
+        ],
+        "benevolent": [
+          true,
+          true
+        ],
+        "hostile_subs": [
+          [
+            "competitive_gender_differentiation"
+          ],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [
+            "complementary_gender_differentiation"
+          ],
+          [
+            "complementary_gender_differentiation",
+            "heterosexual_intimacy",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2562",
+        "stance": [
+          "both",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2565",
+        "stance": [
+          "irrelevant",
+          "both"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s2585",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "heterosexual_intimacy"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2667",
+        "stance": [
+          "for",
+          "both"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2737",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2747",
+        "stance": [
+          "for",
+          "both"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          true,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "heterosexual_hostility"
+          ]
+        ],
+        "benevolent_subs": [
+          [
+            "complementary_gender_differentiation"
+          ],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2768",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "complementary_gender_differentiation"
+          ],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2853",
+        "stance": [
+          "both",
+          "both"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "heterosexual_intimacy",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2899",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "complementary_gender_differentiation"
+          ],
+          [
+            "complementary_gender_differentiation",
+            "heterosexual_intimacy"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s2927",
         "stance": [
           "for",
           "irrelevant"
@@ -2808,64 +1791,9 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "ea2bd42a77e0534d_speech_8",
-        "stance": [
-          "for",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          true,
-          true
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [
-            "protective_paternalism"
-          ],
-          [
-            "complementary_gender_differentiation",
-            "protective_paternalism"
-          ]
-        ],
-        "stance_differs": false,
-        "sexism_differs": true
-      },
-      {
-        "speech_id": "ec0f7155be31f93b_speech_11",
+        "speech_id": "s2980",
         "stance": [
           "irrelevant",
-          "for"
-        ],
-        "hostile": [
-          false,
-          false
-        ],
-        "benevolent": [
-          false,
-          false
-        ],
-        "hostile_subs": [
-          [],
-          []
-        ],
-        "benevolent_subs": [
-          [],
-          []
-        ],
-        "stance_differs": true,
-        "sexism_differs": false
-      },
-      {
-        "speech_id": "ed1b356b7cd20ad2_speech_2",
-        "stance": [
-          "for",
           "for"
         ],
         "hostile": [
@@ -2886,11 +1814,11 @@
             "complementary_gender_differentiation"
           ]
         ],
-        "stance_differs": false,
+        "stance_differs": true,
         "sexism_differs": true
       },
       {
-        "speech_id": "efac72d774cf8ec9_speech_22",
+        "speech_id": "s3013",
         "stance": [
           "both",
           "for"
@@ -2921,10 +1849,37 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "f17f31055d5795ee_speech_1",
+        "speech_id": "s3119",
         "stance": [
           "irrelevant",
-          "both"
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3198",
+        "stance": [
+          "irrelevant",
+          "for"
         ],
         "hostile": [
           false,
@@ -2946,7 +1901,610 @@
         "sexism_differs": false
       },
       {
-        "speech_id": "f6b9408d4b1d2183_speech_189",
+        "speech_id": "s3300",
+        "stance": [
+          "both",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s3375",
+        "stance": [
+          "both",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3377",
+        "stance": [
+          "both",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s3392",
+        "stance": [
+          "for",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s3466",
+        "stance": [
+          "for",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s3563",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3609",
+        "stance": [
+          "against",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3610",
+        "stance": [
+          "for",
+          "both"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3630",
+        "stance": [
+          "irrelevant",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3639",
+        "stance": [
+          "irrelevant",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3663",
+        "stance": [
+          "against",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s3709",
+        "stance": [
+          "both",
+          "against"
+        ],
+        "hostile": [
+          false,
+          true
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3741",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "protective_paternalism"
+          ],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3809",
+        "stance": [
+          "against",
+          "against"
+        ],
+        "hostile": [
+          true,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [
+            "dominative_paternalism"
+          ],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s3822",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s3994",
+        "stance": [
+          "for",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s4037",
+        "stance": [
+          "against",
+          "against"
+        ],
+        "hostile": [
+          true,
+          true
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ],
+          [
+            "competitive_gender_differentiation",
+            "dominative_paternalism"
+          ]
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s4044",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s4055",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "protective_paternalism"
+          ],
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s4370",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s4602",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s4606",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s4757",
         "stance": [
           "for",
           "irrelevant"
@@ -2973,7 +2531,32 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "facc0961c29fa891_speech_15",
+        "speech_id": "s4769",
+        "stance": [
+          "for",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s4849",
         "stance": [
           "for",
           "irrelevant"
@@ -3000,7 +2583,374 @@
         "sexism_differs": true
       },
       {
-        "speech_id": "fb15dbb300027164_speech_13",
+        "speech_id": "s5041",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s5204",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s5226",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          true,
+          false
+        ],
+        "benevolent": [
+          true,
+          false
+        ],
+        "hostile_subs": [
+          [
+            "competitive_gender_differentiation"
+          ],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "complementary_gender_differentiation"
+          ],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s5565",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          [
+            "complementary_gender_differentiation"
+          ]
+        ],
+        "stance_differs": true,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s5639",
+        "stance": [
+          "both",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s5761",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          true
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "complementary_gender_differentiation"
+          ],
+          [
+            "complementary_gender_differentiation",
+            "heterosexual_intimacy",
+            "protective_paternalism"
+          ]
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s5918",
+        "stance": [
+          "both",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s5998",
+        "stance": [
+          "for",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s6044",
+        "stance": [
+          "for",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s6158",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s6175",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s6216",
+        "stance": [
+          "for",
+          "irrelevant"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s6329",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s6357",
+        "stance": [
+          "for",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          true,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [
+            "protective_paternalism"
+          ],
+          []
+        ],
+        "stance_differs": false,
+        "sexism_differs": true
+      },
+      {
+        "speech_id": "s6372",
         "stance": [
           "for",
           "for"
@@ -3025,6 +2975,56 @@
         ],
         "stance_differs": false,
         "sexism_differs": true
+      },
+      {
+        "speech_id": "s6406",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
+      },
+      {
+        "speech_id": "s6452",
+        "stance": [
+          "irrelevant",
+          "for"
+        ],
+        "hostile": [
+          false,
+          false
+        ],
+        "benevolent": [
+          false,
+          false
+        ],
+        "hostile_subs": [
+          [],
+          []
+        ],
+        "benevolent_subs": [
+          [],
+          []
+        ],
+        "stance_differs": true,
+        "sexism_differs": false
       }
     ]
   },

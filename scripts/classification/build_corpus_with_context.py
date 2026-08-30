@@ -1,26 +1,30 @@
 """
-Build corpus_with_context.parquet: the 6,531 keyword-extracted speeches with
-5-before + 5-after context windows attached, drawn from the full corpus so
-that the LLM sees the same context human annotators saw.
+Pipeline step 2: attach 5-before + 5-after context windows to the
+keyword-extracted speeches, drawn from the full corpus, so the LLM sees the
+same context human annotators saw.
 
-Reads:  data/womens_rights/speech_classifications.parquet (speech ids,
-        debate ids, and target text of the extracted speeches)
-        data/corpus/speeches/speeches_*.parquet (full corpus; download the
-        corpus/ folder from the Hugging Face dataset first)
-Writes: data/womens_rights/corpus_with_context.parquet
+Runs on the output of scripts/extraction/extract_suffrage_reliable.py
+(pipeline step 1), which carries the corpus speech and debate ids of the
+extracted speeches.
+
+Reads:  outputs/suffrage_reliable/speeches_reliable.parquet (from step 1;
+        override with --extracted)
+        data/corpus/speeches/speeches_*.parquet (full corpus; run
+        scripts/download_data.py --full first)
+Writes: outputs/suffrage_reliable/corpus_with_context.parquet
 
 Columns:
   speech_id, debate_id, target_text, preceding_speeches, following_speeches,
   context_text  (formatted string ready for LLM consumption)
 """
+import argparse
 from pathlib import Path
 
 import pandas as pd
 
 REPO = Path(__file__).resolve().parents[2]
-CLASSIFICATIONS = REPO / "data" / "womens_rights" / "speech_classifications.parquet"
+DEFAULT_EXTRACTED = REPO / "outputs" / "suffrage_reliable" / "speeches_reliable.parquet"
 CORPUS_SPEECHES = REPO / "data" / "corpus" / "speeches"
-OUT_PATH = REPO / "data" / "womens_rights" / "corpus_with_context.parquet"
 CONTEXT_WINDOW = 5  # matches create_validation_sample.py
 
 
@@ -144,13 +148,18 @@ def load_turns(base: pd.DataFrame) -> pd.DataFrame:
 
 
 def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--extracted", type=Path, default=DEFAULT_EXTRACTED,
+                    help="Output parquet of extract_suffrage_reliable.py")
+    args = ap.parse_args()
+
     print("Loading extracted speeches...")
-    base = pd.read_parquet(
-        CLASSIFICATIONS, columns=["speech_id", "debate_id", "target_text"]
-    )
+    base = pd.read_parquet(args.extracted,
+                           columns=["speech_id", "debate_id", "text"])
+    base = base.rename(columns={"text": "target_text"})
     missing = base["target_text"].isna().sum()
     if missing:
-        raise SystemExit(f"FATAL: {missing} corpus speeches missing target_text")
+        raise SystemExit(f"FATAL: {missing} extracted speeches missing text")
 
     print("Loading debate turns from the full corpus...")
     turns = load_turns(base)

@@ -1,4 +1,4 @@
-V8 Inter-Annotator Agreement (n=300)
+Inter-Annotator Agreement (n=300)
 ============================================================
 
 Top-level kappa (Author 1 vs Author 2):

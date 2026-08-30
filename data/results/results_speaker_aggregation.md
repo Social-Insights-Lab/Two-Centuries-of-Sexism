@@ -1,4 +1,4 @@
-# Speaker-level aggregation (rebuttal check for Reviewer xe7f)
+# Speaker-level aggregation (Appendix L)
 
 Source: `speech_classifications.parquet`. Baseline per-speech numbers verified against the paper before aggregating (see JSON for the check list).
 Speaker unit = normalized (name, gender); 0 relevant speeches without a parseable speaker excluded from speaker-level rows.

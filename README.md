@@ -13,10 +13,10 @@ speeches across 1.2 million debates.
 
 ## The datasets
 
-Large files are hosted on Hugging Face; this repository holds code,
-prompts, human annotations, and result files.
+Two independent Hugging Face datasets; this repository holds code, prompts,
+human annotations, and result files.
 
-### 1. Hansard gender-matched corpus (Hugging Face)
+### 1. Hansard gender-matched corpus
 
 `https://huggingface.co/datasets/omarkhursheed/hansard-gendered-corpus`
 
@@ -28,14 +28,21 @@ prompts, human annotations, and result files.
 
 See [DATASHEET.md](DATASHEET.md) for the full schema and known limitations.
 
-### 2. Women's political rights subset (Hugging Face, same repo)
+### 2. Classified women's rights speeches
 
-- `corpus_with_context.parquet`: the 6,531 keyword-extracted speeches, each
-  with up to 5 preceding and 5 following speeches as context
-- `speech_classifications.parquet`: one row per speech with speaker
-  metadata, LLM stance labels (for / against / both / irrelevant), hostile and
-  benevolent sexism flags with subcategories, rationales, and supporting
-  verbatim quotes
+`https://huggingface.co/datasets/omarkhursheed/two-centuries-of-sexism`
+
+- `speech_classifications.parquet`: 6,531 speeches on women's political
+  rights (1809-2004) with speaker metadata, LLM stance labels
+  (for / against / both / irrelevant), hostile and benevolent sexism flags
+  with subcategories, rationales, and supporting verbatim quotes
+- `corpus_with_context.parquet`: the same speeches with up to 5 preceding
+  and 5 following speeches as context (what the LLM and annotators saw)
+
+This dataset is standalone: it carries its own text and metadata, keyed by
+an opaque per-speech id. It was retrieved from the corpus with the two-tier
+keyword extractor in `scripts/extraction/`; re-run the extraction pipeline
+against the corpus to re-derive it.
 
 ### 3. In this repository
 
@@ -53,8 +60,8 @@ See [DATASHEET.md](DATASHEET.md) for the full schema and known limitations.
 from datasets import load_dataset
 
 # Classified women's rights speeches
-ds = load_dataset("omarkhursheed/hansard-gendered-corpus",
-                  data_files="womens_rights/speech_classifications.parquet")
+ds = load_dataset("omarkhursheed/two-centuries-of-sexism",
+                  data_files="speech_classifications.parquet")
 
 # One year of the full corpus
 speeches_1918 = load_dataset("omarkhursheed/hansard-gendered-corpus",
@@ -66,15 +73,12 @@ Or fetch the files into `data/`, where the scripts in this repo expect them:
 ```bash
 pip install huggingface_hub
 
-# Women's rights subset (~320 MB) -- enough for all analysis scripts
+# Classified dataset (~320 MB) -- enough for all analysis scripts
 python scripts/download_data.py
 
-# Subset plus the full 6.78M-speech corpus (~9.4 GB, into data/corpus/)
+# Plus the full 6.78M-speech corpus (~9.4 GB, into data/corpus/)
 python scripts/download_data.py --full
 ```
-
-Equivalent CLI: `hf download omarkhursheed/hansard-gendered-corpus
---repo-type dataset --local-dir data --include "corpus/*" "womens_rights/*"`
 
 ## Reproducing the paper
 
