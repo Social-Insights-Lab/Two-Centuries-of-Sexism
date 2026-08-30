@@ -1,5 +1,5 @@
 """
-Inter-annotator agreement for the V8 500-speech validation round.
+Inter-annotator agreement on the 300-speech validation set.
 
 Reports:
 - Stance: percent agreement + Cohen's kappa (4-class)
@@ -10,10 +10,10 @@ Reports:
 - Disagreement breakdown for the resolution pass
 
 All metrics computed over the intersection of speech_ids that both
-annotators labelled. Outputs JSON for reproducibility and a human-readable
-TXT summary.
+annotators labelled.
 
-Usage: python 03_agreement.py
+Reads:  data/annotations/author_1.jsonl, author_2.jsonl
+Writes: data/results/agreement.{json,txt}
 """
 import json
 from collections import Counter
@@ -22,12 +22,12 @@ from pathlib import Path
 import pandas as pd
 from sklearn.metrics import cohen_kappa_score, confusion_matrix
 
-ROOT = Path(__file__).parent
-ANN_DIR = ROOT / "annotations"
-OMAR_PATH = ANN_DIR / "omar.jsonl"
-MANDIRA_PATH = ANN_DIR / "mandira.jsonl"
-OUT_JSON = ROOT / "agreement.json"
-OUT_TXT = ROOT / "agreement.txt"
+REPO = Path(__file__).resolve().parents[2]
+ANN_DIR = REPO / "data" / "annotations"
+AUTHOR_1_PATH = ANN_DIR / "author_1.jsonl"
+AUTHOR_2_PATH = ANN_DIR / "author_2.jsonl"
+OUT_JSON = REPO / "data" / "results" / "agreement.json"
+OUT_TXT = REPO / "data" / "results" / "agreement.txt"
 
 HOSTILE_SUBS = [
     "dominative_paternalism",
@@ -67,14 +67,14 @@ def cm_to_dict(cm, labels):
 
 
 def main():
-    omar = load(OMAR_PATH)
-    mandira = load(MANDIRA_PATH)
-    common = sorted(set(omar) & set(mandira))
+    author_1 = load(AUTHOR_1_PATH)
+    author_2 = load(AUTHOR_2_PATH)
+    common = sorted(set(author_1) & set(author_2))
     n = len(common)
 
     # Aligned label vectors
-    o = [omar[s] for s in common]
-    m = [mandira[s] for s in common]
+    o = [author_1[s] for s in common]
+    m = [author_2[s] for s in common]
 
     out = {"n": n, "speech_ids_count": n}
 
@@ -116,14 +116,14 @@ def main():
                                  "note": "never used by either annotator"}
         else:
             sub_results[sub] = agreement(o_sub, m_sub, sub, labels=[False, True])
-            sub_results[sub]["omar_count"] = sum(o_sub)
-            sub_results[sub]["mandira_count"] = sum(m_sub)
+            sub_results[sub]["author_1_count"] = sum(o_sub)
+            sub_results[sub]["author_2_count"] = sum(m_sub)
     out["subcategories"] = sub_results
 
     # Disagreement breakdown
     disagreements = []
     for sid in common:
-        ro, rm = omar[sid], mandira[sid]
+        ro, rm = author_1[sid], author_2[sid]
         if (ro["stance"] != rm["stance"]
             or ro["hostile"] != rm["hostile"]
             or ro["benevolent"] != rm["benevolent"]
@@ -159,13 +159,13 @@ def main():
 
     # Label distributions for transparency
     out["distributions"] = {
-        "omar": {
+        "author_1": {
             "stance": dict(Counter(r["stance"] for r in o)),
             "hostile": sum(1 for r in o if r["hostile"]),
             "benevolent": sum(1 for r in o if r["benevolent"]),
             "sexist": sum(1 for r in o if r["sexist"]),
         },
-        "mandira": {
+        "author_2": {
             "stance": dict(Counter(r["stance"] for r in m)),
             "hostile": sum(1 for r in m if r["hostile"]),
             "benevolent": sum(1 for r in m if r["benevolent"]),
@@ -178,10 +178,10 @@ def main():
 
     # Human-readable summary
     lines = []
-    lines.append(f"V8 Inter-Annotator Agreement (n={n})")
+    lines.append(f"Inter-Annotator Agreement (n={n})")
     lines.append("=" * 60)
     lines.append("")
-    lines.append("Top-level kappa (Omar vs Mandira):")
+    lines.append("Top-level kappa (Author 1 vs Author 2):")
     for key, label in [("stance", "Stance (4-class)"),
                         ("hostile_binary", "Hostile (binary)"),
                         ("benevolent_binary", "Benevolent (binary)"),
@@ -190,7 +190,7 @@ def main():
         lines.append(f"  {label:25s}  agree={r['agree']}/{n} ({r['percent']:.1%})  "
                      f"kappa={r['kappa']:.3f}")
     lines.append("")
-    lines.append("Stance confusion (rows=Omar, cols=Mandira):")
+    lines.append("Stance confusion (rows=Author 1, cols=Author 2):")
     cm = out["stance"]["confusion"]
     lines.append("           " + "  ".join(f"{s[:6]:>10s}" for s in STANCE_OPTIONS))
     for s_o in STANCE_OPTIONS:
@@ -203,7 +203,7 @@ def main():
             lines.append(f"  {sub:45s}  unused by both annotators")
         else:
             lines.append(f"  {sub:45s}  "
-                         f"O={r['omar_count']:3d}  M={r['mandira_count']:3d}  "
+                         f"A1={r['author_1_count']:3d}  A2={r['author_2_count']:3d}  "
                          f"kappa={r['kappa']:.3f}")
     lines.append("")
     d = out["disagreements"]
@@ -212,7 +212,7 @@ def main():
                  f"both: {d['both']})")
     lines.append("")
     lines.append("Distributions:")
-    for who in ("omar", "mandira"):
+    for who in ("author_1", "author_2"):
         dist = out["distributions"][who]
         lines.append(f"  {who}: stance={dist['stance']}  "
                      f"hostile={dist['hostile']}  benevolent={dist['benevolent']}  "

@@ -1,17 +1,21 @@
 """
-V8 resolution app: walk through the 106 disagreements between Omar's and
-Mandira's annotations and commit consensus labels.
+Resolution app: walk through the disagreements between the two annotators'
+labels and commit consensus labels.
 
 Workflow (designed for both annotators sitting together):
 - Sidebar: progress (resolved / total), nav, filter (unresolved / all)
 - Main: speech text with keyword highlights, then side-by-side comparison
-  of Omar's vs Mandira's labels, then a consensus form pre-filled from one
-  side. Quick buttons: Use Omar's / Use Mandira's / Not sexist.
-- Each disagreement's consensus is auto-saved to annotations/consensus.jsonl
-  on change (atomic write).
+  of the two annotators' labels, then a consensus form pre-filled from one
+  side. Quick buttons: Use Author 1's / Use Author 2's / Not sexist.
+- Each disagreement's consensus is auto-saved to
+  data/annotations/consensus.jsonl on change (atomic write).
+
+Reads:  data/validation/validation_sample.parquet
+        data/annotations/author_1.jsonl, author_2.jsonl
+Writes: data/annotations/consensus.jsonl
 
 Usage:
-    streamlit run experiments/20260520_v8_500_validation/04_resolution_app.py
+    streamlit run scripts/annotation/resolution_app.py
 """
 import json
 import re
@@ -27,11 +31,11 @@ import streamlit as st
 # Paths and constants
 # --------------------------------------------------------------------------- #
 
-ROOT = Path(__file__).parent
-SAMPLE_PATH = ROOT / "validation_sample.parquet"
-ANNOTATIONS_DIR = ROOT / "annotations"
-OMAR_PATH = ANNOTATIONS_DIR / "omar.jsonl"
-MANDIRA_PATH = ANNOTATIONS_DIR / "mandira.jsonl"
+REPO = Path(__file__).resolve().parents[2]
+SAMPLE_PATH = REPO / "data" / "validation" / "validation_sample.parquet"
+ANNOTATIONS_DIR = REPO / "data" / "annotations"
+AUTHOR_1_PATH = ANNOTATIONS_DIR / "author_1.jsonl"
+AUTHOR_2_PATH = ANNOTATIONS_DIR / "author_2.jsonl"
 CONSENSUS_PATH = ANNOTATIONS_DIR / "consensus.jsonl"
 
 STANCE_OPTIONS = ["for", "against", "both", "irrelevant"]
@@ -291,11 +295,11 @@ def is_disagreement(o, m):
 def disagreement_summary(o, m):
     parts = []
     if o["stance"] != m["stance"]:
-        parts.append(f"stance: O={o['stance']} | M={m['stance']}")
+        parts.append(f"stance: A1={o['stance']} | A2={m['stance']}")
     if o["hostile"] != m["hostile"] or set(o["hostile_subcategories"]) != set(m["hostile_subcategories"]):
-        parts.append(f"hostile: O={o['hostile_subcategories'] or 'no'} | M={m['hostile_subcategories'] or 'no'}")
+        parts.append(f"hostile: A1={o['hostile_subcategories'] or 'no'} | A2={m['hostile_subcategories'] or 'no'}")
     if o["benevolent"] != m["benevolent"] or set(o["benevolent_subcategories"]) != set(m["benevolent_subcategories"]):
-        parts.append(f"benevolent: O={o['benevolent_subcategories'] or 'no'} | M={m['benevolent_subcategories'] or 'no'}")
+        parts.append(f"benevolent: A1={o['benevolent_subcategories'] or 'no'} | A2={m['benevolent_subcategories'] or 'no'}")
     return parts
 
 
@@ -303,7 +307,7 @@ def disagreement_summary(o, m):
 # Streamlit UI
 # --------------------------------------------------------------------------- #
 
-st.set_page_config(page_title="V8 Resolution", layout="wide")
+st.set_page_config(page_title="Resolution", layout="wide")
 st.markdown(
     """
     <style>
@@ -335,18 +339,18 @@ if "idx" not in st.session_state:
 if "filter_mode" not in st.session_state:
     st.session_state.filter_mode = "unresolved"
 
-omar = load_jsonl(OMAR_PATH)
-mandira = load_jsonl(MANDIRA_PATH)
+author_1 = load_jsonl(AUTHOR_1_PATH)
+author_2 = load_jsonl(AUTHOR_2_PATH)
 consensus = load_jsonl(CONSENSUS_PATH)
 sample = load_sample()
 
 # Compute ordered list of disagreement speech_ids (in sample_idx order)
-common = set(omar) & set(mandira)
+common = set(author_1) & set(author_2)
 disagree_ids = []
 sample_by_id = {row["speech_id"]: row for _, row in sample.iterrows()}
 for _, row in sample.iterrows():
     sid = row["speech_id"]
-    if sid in common and is_disagreement(omar[sid], mandira[sid]):
+    if sid in common and is_disagreement(author_1[sid], author_2[sid]):
         disagree_ids.append(sid)
 N = len(disagree_ids)
 
@@ -390,7 +394,7 @@ with st.sidebar:
 
     with st.expander("Notes from annotators"):
         sid = disagree_ids[st.session_state.idx]
-        for who, rec in (("Omar", omar[sid]), ("Mandira", mandira[sid])):
+        for who, rec in (("Author 1", author_1[sid]), ("Author 2", author_2[sid])):
             note = rec.get("notes", "").strip()
             flag = " [FLAGGED]" if rec.get("flagged") else ""
             if note or flag:
@@ -402,8 +406,8 @@ with st.sidebar:
 # --------- Main panel --------- #
 
 sid = disagree_ids[st.session_state.idx]
-o_rec = omar[sid]
-m_rec = mandira[sid]
+o_rec = author_1[sid]
+m_rec = author_2[sid]
 c_rec = consensus.get(sid)
 row = sample_by_id[sid]
 text = row["target_text"] or ""
@@ -510,9 +514,9 @@ if (o_rec["benevolent"] != m_rec["benevolent"]
 
 c1, c2, c3 = st.columns([1, 1, 1])
 with c1:
-    card("Omar", o_rec, diff_keys)
+    card("Author 1", o_rec, diff_keys)
 with c2:
-    card("Mandira", m_rec, diff_keys)
+    card("Author 2", m_rec, diff_keys)
 with c3:
     st.markdown("<div class='ann-card' style='background:rgba(34,197,94,0.08);"
                  "border-left:3px solid #22c55e'><h5>Consensus</h5></div>",
@@ -521,7 +525,7 @@ with c3:
 
 # --------- Consensus form --------- #
 
-# Initialise consensus from existing record, or default to Omar's labels
+# Initialise consensus from existing record, or default to Author 1's labels
 if c_rec is None:
     initial = {
         "stance": o_rec["stance"],
@@ -552,11 +556,11 @@ def _set_consensus(stance, hostile_subs, benevolent_subs):
     st.session_state["form_nonce_" + sid] = st.session_state.get("form_nonce_" + sid, 0) + 1
 
 
-if fill_cols[0].button("Use Omar's", use_container_width=True):
+if fill_cols[0].button("Use Author 1's", use_container_width=True):
     _set_consensus(o_rec["stance"], o_rec["hostile_subcategories"],
                    o_rec["benevolent_subcategories"])
     st.rerun()
-if fill_cols[1].button("Use Mandira's", use_container_width=True):
+if fill_cols[1].button("Use Author 2's", use_container_width=True):
     _set_consensus(m_rec["stance"], m_rec["hostile_subcategories"],
                    m_rec["benevolent_subcategories"])
     st.rerun()
@@ -598,7 +602,7 @@ with bc:
 # Save on change. Compare against the form's initial values -- if nothing
 # changed since render, this is just a passive page load and we must NOT
 # commit a phantom consensus (otherwise navigating through unresolved items
-# would silently auto-save Omar's defaults everywhere).
+# would silently auto-save Author 1's defaults everywhere).
 prospective = {
     "stance": new_stance,
     "hostile_subcategories": sorted(new_h),

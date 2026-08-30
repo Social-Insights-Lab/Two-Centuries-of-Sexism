@@ -39,8 +39,8 @@ corpus/
   debates/debates_YYYY.parquet     # 201 files, one per year
   house_members_gendered.parquet   # unified MP database with gender
 womens_rights/
-  corpus_with_context.parquet          # 6,531 speeches + context windows
-  v8_corpus_classifications.parquet    # LLM stance and sexism labels
+  corpus_with_context.parquet       # 6,531 speeches + context windows
+  speech_classifications.parquet    # LLM stance and sexism labels
 ```
 
 ## Speeches schema
@@ -83,9 +83,9 @@ has_male).
 preceding_speeches, following_speeches, context_text (up to 5 speeches either
 side of the target).
 
-`v8_corpus_classifications.parquet` (6,531 rows): speech metadata (speaker,
-year, decade, era, date, gender, party, chamber, word_count, target_text,
-context_text) plus model outputs:
+`speech_classifications.parquet` (6,531 rows): speech metadata (speaker,
+canonical_name, year, decade, era, date, gender, party, chamber, word_count,
+target_text, context_text) plus model outputs:
 
 | Field | Description |
 |---|---|

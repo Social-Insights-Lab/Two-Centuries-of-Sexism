@@ -57,48 +57,48 @@
       "agree": 276,
       "percent": 0.92,
       "kappa": 0.222,
-      "omar_count": 7,
-      "mandira_count": 25
+      "author_1_count": 7,
+      "author_2_count": 25
     },
     "competitive_gender_differentiation": {
       "n": 300,
       "agree": 281,
       "percent": 0.937,
       "kappa": 0.219,
-      "omar_count": 5,
-      "mandira_count": 20
+      "author_1_count": 5,
+      "author_2_count": 20
     },
     "heterosexual_hostility": {
       "n": 300,
       "agree": 296,
       "percent": 0.987,
       "kappa": -0.005,
-      "omar_count": 1,
-      "mandira_count": 3
+      "author_1_count": 1,
+      "author_2_count": 3
     },
     "protective_paternalism": {
       "n": 300,
       "agree": 260,
       "percent": 0.867,
       "kappa": -0.013,
-      "omar_count": 13,
-      "mandira_count": 29
+      "author_1_count": 13,
+      "author_2_count": 29
     },
     "complementary_gender_differentiation": {
       "n": 300,
       "agree": 268,
       "percent": 0.893,
       "kappa": 0.308,
-      "omar_count": 17,
-      "mandira_count": 33
+      "author_1_count": 17,
+      "author_2_count": 33
     },
     "heterosexual_intimacy": {
       "n": 300,
       "agree": 291,
       "percent": 0.97,
       "kappa": 0.0,
-      "omar_count": 0,
-      "mandira_count": 9
+      "author_1_count": 0,
+      "author_2_count": 9
     }
   },
   "disagreements": {
@@ -3029,7 +3029,7 @@
     ]
   },
   "distributions": {
-    "omar": {
+    "author_1": {
       "stance": {
         "irrelevant": 178,
         "for": 83,
@@ -3040,7 +3040,7 @@
       "benevolent": 29,
       "sexist": 36
     },
-    "mandira": {
+    "author_2": {
       "stance": {
         "irrelevant": 164,
         "for": 92,

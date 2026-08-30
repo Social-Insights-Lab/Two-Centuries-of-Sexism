@@ -1,14 +1,16 @@
 """
-Stance baselines on the 300-speech V8 validation set. Produces numbers for the
-non-LLM rows of Table 6 (`tab:baselines`).
+Stance baselines on the 300-speech validation set. Produces the non-LLM rows
+of the baseline comparison table (Table 4).
 
 Three baselines:
   - Majority class
   - TF-IDF + Logistic Regression (5-fold stratified CV)
   - DeBERTa-v3 zero-shot NLI
 
-Output:
-  experiments/may24_rewrite/baselines_results.json
+Reads:  data/annotations/gold.jsonl
+        data/womens_rights/corpus_with_context.parquet (run
+        scripts/download_data.py first)
+Writes: data/results/baselines_results.json
 """
 import json
 from pathlib import Path
@@ -22,10 +24,10 @@ from sklearn.metrics import (cohen_kappa_score, classification_report,
 from sklearn.model_selection import StratifiedKFold, cross_val_predict
 from sklearn.pipeline import Pipeline
 
-ROOT = Path(__file__).resolve().parent
-GOLD = ROOT / "gold.jsonl"
-CORPUS = ROOT / "corpus_with_context.parquet"
-OUT = ROOT / "baselines_results.json"
+REPO = Path(__file__).resolve().parents[2]
+GOLD = REPO / "data" / "annotations" / "gold.jsonl"
+CORPUS = REPO / "data" / "womens_rights" / "corpus_with_context.parquet"
+OUT = REPO / "data" / "results" / "baselines_results.json"
 
 STANCE = ["for", "against", "both", "irrelevant"]
 

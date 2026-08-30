@@ -1,24 +1,31 @@
 #!/usr/bin/env python3
 """
-Extract reliable suffrage dataset based on validation findings.
+Two-tier keyword extraction of suffrage-related speeches from the full
+corpus (Appendix A of the paper). This is the extractor that built the
+6,531-speech analysis corpus.
 
-Based on large-sample validation (n=300):
-- Tier 1: 95% precision (explicit suffrage terms)
-- Tier 2 MEDIUM: 25.7% precision (women + voting in proximity)
-- Tier 2 LOW/OFF: Not reliable
+Tier precision estimates from a 300-speech keyword-precision audit:
+- Tier 1 (HIGH): ~95% precision (explicit suffrage terms)
+- Tier 2 (MEDIUM): ~26% precision (women + voting in proximity)
+Both tiers are kept; false positives are filtered downstream by the LLM
+relevance classification.
 
-This extracts only HIGH and MEDIUM confidence speeches.
+Reads:  data/corpus/speeches/speeches_*.parquet (full corpus, from HF)
+Writes: outputs/suffrage_reliable/ (parquet + inspection CSVs + summary)
 """
 
 import pandas as pd
 from pathlib import Path
 import re
 
+REPO = Path(__file__).resolve().parents[2]
+
 
 class ReliableSuffrageExtractor:
     """Extract only reliable suffrage speeches."""
 
-    def __init__(self, year_range=(1900, 1935), data_dir='data-hansard/derived_complete'):
+    def __init__(self, year_range=(1900, 1935),
+                 data_dir=REPO / "data" / "corpus"):
         self.year_range = year_range
         self.data_dir = Path(data_dir)
 
@@ -41,7 +48,7 @@ class ReliableSuffrageExtractor:
         all_speeches = []
 
         for year in range(self.year_range[0], self.year_range[1] + 1):
-            speech_file = self.data_dir / 'speeches_complete' / f'speeches_{year}.parquet'
+            speech_file = self.data_dir / 'speeches' / f'speeches_{year}.parquet'
 
             if not speech_file.exists():
                 continue

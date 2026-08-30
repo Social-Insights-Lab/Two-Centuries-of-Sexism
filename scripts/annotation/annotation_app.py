@@ -1,21 +1,24 @@
 """
-V8 annotation app: stance + multi-label AST sexism with subcategories.
+Annotation app: stance + multi-label ambivalent-sexism with subcategories.
 
-Schema (per coauthor decision 2026-05-19):
+Schema:
   - Stance: exactly one of for / against / both / irrelevant
   - Hostile sexism: multi-label across 3 subcategories (or none)
   - Benevolent sexism: multi-label across 3 subcategories (or none)
   - Hostile and benevolent are independent; both/either may be selected
 
 Design:
-  - Two annotators (Omar, Mandira) each label 500 speeches independently
+  - Two annotators each label the validation speeches independently
   - LLM labels are loaded but never displayed; annotator works blind
   - Auto-save on every change (atomic write); navigation is always free
   - Long speeches (>3000 words) default to keyword-excerpt view
   - Resume = jump to first unannotated speech on login
 
+Reads:  data/validation/validation_sample.parquet
+Writes: data/annotations/<annotator>.jsonl
+
 Usage:
-    streamlit run experiments/20260520_v8_500_validation/02_annotation_app.py
+    streamlit run scripts/annotation/annotation_app.py
 """
 import json
 import re
@@ -32,9 +35,9 @@ import streamlit.components.v1 as components
 # Paths and constants
 # --------------------------------------------------------------------------- #
 
-ROOT = Path(__file__).parent
-SAMPLE_PATH = ROOT / "validation_sample.parquet"
-ANNOTATIONS_DIR = ROOT / "annotations"
+REPO = Path(__file__).resolve().parents[2]
+SAMPLE_PATH = REPO / "data" / "validation" / "validation_sample.parquet"
+ANNOTATIONS_DIR = REPO / "data" / "annotations"
 ANNOTATIONS_DIR.mkdir(parents=True, exist_ok=True)
 
 STANCE_OPTIONS = ["for", "against", "both", "irrelevant"]
@@ -442,7 +445,7 @@ def derive(rec: dict) -> dict:
 # Streamlit UI
 # --------------------------------------------------------------------------- #
 
-st.set_page_config(page_title="V8 Annotation", layout="wide")
+st.set_page_config(page_title="Annotation", layout="wide")
 
 st.markdown(
     """
@@ -483,7 +486,7 @@ N = len(sample)
 
 with st.sidebar:
     st.markdown("### Annotator")
-    name = st.text_input("Your name (e.g. omar)", value=st.session_state.annotator)
+    name = st.text_input("Your name (e.g. author_1)", value=st.session_state.annotator)
     if name != st.session_state.annotator:
         st.session_state.annotator = name
         st.session_state.annotations = load_annotations(name) if name else {}
@@ -600,7 +603,7 @@ with left:
         pills.append(f"{row['chamber']}")
     st.markdown(" ".join(f'<span class="meta-pill">{p}</span>' for p in pills),
                 unsafe_allow_html=True)
-    st.caption(f"speech_id: `{sid}`  •  debate_id: `{row.get('debate_id', '')}`")
+    st.caption(f"speech_id: `{sid}`  |  debate_id: `{row.get('debate_id', '')}`")
 
 with right:
     status = "[OK] annotated" if is_complete(rec) else "unannotated"
@@ -820,10 +823,10 @@ components.html(
   // Streamlit destroys this iframe on every rerun, which orphans any
   // listener that closed over the iframe's V8 scope. So we remove any
   // previous handler and attach a fresh one each time the script runs.
-  if (doc._v8_handler) {
-    doc.removeEventListener('keydown', doc._v8_handler);
+  if (doc._kbd_handler) {
+    doc.removeEventListener('keydown', doc._kbd_handler);
   }
-  doc._v8_handler = handler;
+  doc._kbd_handler = handler;
   doc.addEventListener('keydown', handler);
 })();
 </script>

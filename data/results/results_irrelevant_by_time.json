@@ -1,5 +1,5 @@
 {
-  "source": "/Users/omarkhursheed/workplace/hansard-nlp-explorer/experiments/may24_rewrite/v8_corpus_classifications.csv",
+  "source": "/Users/omarkhursheed/workplace/Two-Centuries-of-Sexism/data/womens_rights/speech_classifications.parquet",
   "n_total": 6531,
   "n_irrelevant": 3589,
   "overall_irrelevant_pct": 55.0,

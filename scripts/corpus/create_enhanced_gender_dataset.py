@@ -3,6 +3,11 @@
 Create ENHANCED gender analysis dataset with full debate text from existing extracted content
 Processes all years of data (1803-2005) with checkpointing
 Uses pre-extracted text from processed_fixed/content directory
+
+PROVENANCE ONLY: this pipeline script is published to document how the
+released corpus was built. It runs against the raw Hansard crawl and
+intermediate working files, which are not part of the release; the
+released corpus/ parquet files on Hugging Face are its final output.
 """
 
 import sys

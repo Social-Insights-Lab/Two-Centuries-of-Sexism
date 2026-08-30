@@ -1,4 +1,4 @@
-# V8 Sexism Classification Prompt
+# Sexism Classification Prompt
 
 Pass 2 of 2. Classifies whether a parliamentary speech contains hostile sexism, benevolent sexism, both, or neither, under Ambivalent Sexism Theory (Glick & Fiske, 1996). The stance label from Pass 1 is provided as context.
 

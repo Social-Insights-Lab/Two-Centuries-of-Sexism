@@ -1,20 +1,23 @@
 """
-Run V8 stance + sexism prompts through GPT-5, Gemini 2.5 Flash, DeepSeek V3
+Run the stance + sexism prompts through GPT-5, Gemini 2.5 Flash, DeepSeek V3
 on the 300-speech validation sample. Uses OpenRouter so one key reaches all
 three model families.
 
-Output JSONL files mirror the V8 Anthropic run format:
-  cross_llm/<model_slug>_stance.jsonl
-  cross_llm/<model_slug>_sexism.jsonl
+Output JSONL files mirror the Anthropic run format. This generates the data
+for the cross-model agreement tables (Tables 5 and 8).
 
-This generates the data for the cross-model agreement table (Table 7 in paper).
+Reads:  prompts/stance.md, prompts/sexism.md
+        data/validation/validation_sample.parquet
+        data/womens_rights/corpus_with_context.parquet (run
+        scripts/download_data.py first)
+Writes: data/results/cross_llm/<model_slug>_{stance,sexism}.jsonl
 
 Usage:
-  python experiments/may24_rewrite/06_run_cross_llm.py --model gpt5
-  python experiments/may24_rewrite/06_run_cross_llm.py --model all --limit 5
+  python scripts/classification/run_cross_llm.py --model gpt5
+  python scripts/classification/run_cross_llm.py --model all --limit 5
 
 Environment:
-  OPENROUTER_HANSARD_API_KEY -- distinct from the global key
+  OPENROUTER_HANSARD_API_KEY
 """
 import argparse
 import asyncio
@@ -27,12 +30,12 @@ from pathlib import Path
 import pandas as pd
 from openai import AsyncOpenAI
 
-ROOT = Path(__file__).resolve().parent
-PROMPTS = Path("prompts")
-CORPUS = ROOT / "corpus_with_context.parquet"
-V8_VAL = ROOT.parent / "20260520_v8_500_validation" / "validation_sample.parquet"
-OUT_DIR = ROOT / "cross_llm"
-OUT_DIR.mkdir(exist_ok=True)
+REPO = Path(__file__).resolve().parents[2]
+PROMPTS = REPO / "prompts"
+CORPUS = REPO / "data" / "womens_rights" / "corpus_with_context.parquet"
+VAL = REPO / "data" / "validation" / "validation_sample.parquet"
+OUT_DIR = REPO / "data" / "results" / "cross_llm"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 API_KEY = os.environ.get("OPENROUTER_HANSARD_API_KEY")
 BASE_URL = "https://openrouter.ai/api/v1"
@@ -113,7 +116,7 @@ def split_system_user(body: str) -> tuple[str, str]:
 
 
 def load_validation_speeches() -> list:
-    val = pd.read_parquet(V8_VAL)[["speech_id"]]
+    val = pd.read_parquet(VAL)[["speech_id"]]
     corpus = pd.read_parquet(CORPUS)[["speech_id", "target_text", "context_text"]]
     df = val.merge(corpus, on="speech_id", how="left")
     missing = df["target_text"].isna().sum()
@@ -195,7 +198,7 @@ async def run_one_model(client, model_key, speeches, concurrency=4,
     # Pass 1 -- stance
     if not skip_stance:
         sys_p, user_tpl = split_system_user(
-            extract_prompt_body(PROMPTS / "v8_stance.md")
+            extract_prompt_body(PROMPTS / "stance.md")
         )
         done = load_done(stance_out)
         todo = [s for s in speeches if s["speech_id"] not in done]
@@ -226,7 +229,7 @@ async def run_one_model(client, model_key, speeches, concurrency=4,
                     if stance_by_id.get(s["speech_id"]) in ("for", "against", "both")]
 
         sys_p, user_tpl = split_system_user(
-            extract_prompt_body(PROMPTS / "v8_sexism.md")
+            extract_prompt_body(PROMPTS / "sexism.md")
         )
         done = load_done(sexism_out)
         todo = [s for s in relevant if s["speech_id"] not in done]

@@ -2,6 +2,11 @@
 """
 Corrected MP Matcher with accurate historical data
 No hardcoded assumptions - all data verified from authoritative sources
+
+PROVENANCE ONLY: this pipeline script is published to document how the
+released corpus was built. It runs against the raw Hansard crawl and
+intermediate working files, which are not part of the release; the
+released corpus/ parquet files on Hugging Face are its final output.
 """
 
 import sys

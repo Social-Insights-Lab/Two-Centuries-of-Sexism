@@ -2,6 +2,11 @@
 """
 Create Unified Complete Datasets
 
+PROVENANCE ONLY: this pipeline script is published to document how the
+released corpus was built. It runs against the raw Hansard crawl and
+intermediate working files, which are not part of the release; the
+released corpus/ parquet files on Hugging Face are its final output.
+
 Extracts speech segments from ALL 1.2M debates in processed_complete,
 enriches with gender data from gender_complete where available,
 and creates unified datasets with consistent schemas.

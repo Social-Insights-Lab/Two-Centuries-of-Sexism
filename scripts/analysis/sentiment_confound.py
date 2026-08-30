@@ -1,11 +1,12 @@
 """
-Sentiment confound analysis on V8 sexist speeches. Uses DistilBERT-SST-2 to
-match the original paper's methodology, reports % negative-sentiment broken
-down by stance and sexism type. Generates the replacement for the appendix
-sentiment table (sec:sentiment).
+Sentiment confound analysis (Appendix E). Runs DistilBERT-SST-2 over all
+sexist-flagged speeches and reports % negative-sentiment broken down by
+stance and sexism type.
 
-Output:
-  experiments/may24_rewrite/sentiment_results.json
+Reads:  data/classifications/stance_llm.jsonl, sexism_llm.jsonl
+        data/womens_rights/corpus_with_context.parquet (run
+        scripts/download_data.py first)
+Writes: data/results/sentiment_results.json
 """
 import json
 from pathlib import Path
@@ -13,11 +14,11 @@ from collections import defaultdict
 
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent
-STANCE_JSONL = ROOT / "v8_stance.jsonl"
-SEXISM_JSONL = ROOT / "v8_sexism.jsonl"
-CORPUS = ROOT / "corpus_with_context.parquet"
-OUT = ROOT / "sentiment_results.json"
+REPO = Path(__file__).resolve().parents[2]
+STANCE_JSONL = REPO / "data" / "classifications" / "stance_llm.jsonl"
+SEXISM_JSONL = REPO / "data" / "classifications" / "sexism_llm.jsonl"
+CORPUS = REPO / "data" / "womens_rights" / "corpus_with_context.parquet"
+OUT = REPO / "data" / "results" / "sentiment_results.json"
 
 MODEL = "distilbert-base-uncased-finetuned-sst-2-english"
 MAX_CHARS = 4000  # SST-2 model has a small context window; truncate

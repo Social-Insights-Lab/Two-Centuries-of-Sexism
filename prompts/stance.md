@@ -1,4 +1,4 @@
-# V8 Stance Classification Prompt
+# Stance Classification Prompt
 
 Pass 1 of 2. Classifies the stance of a parliamentary speech on women's political rights and representation. Sexism classification runs in Pass 2 and is not addressed here.
 

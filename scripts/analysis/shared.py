@@ -1,15 +1,16 @@
 """
-Shared data loading for the July 2026 ARR rebuttal checks.
+Shared data loading for the analysis scripts.
 
-Source of truth: experiments/may24_rewrite/v8_corpus_classifications.csv
-(the merged V8 output used for every number in the resubmitted paper:
-6,531 keyword-extracted speeches, stance for all, sexism flags for the
-2,942 non-irrelevant ones).
+Source of truth: data/womens_rights/speech_classifications.parquet
+(fetched by scripts/download_data.py): the 6,531 keyword-extracted
+speeches with LLM stance for all and sexism flags for the 2,942
+non-irrelevant ones. Every corpus-level number in the paper derives
+from this file.
 
 Two derived columns are added here:
 
   tier         'tier1' / 'tier2', re-derived from target_text with the exact
-               logic of scripts/analysis/extract_suffrage_reliable.py (the
+               logic of scripts/extraction/extract_suffrage_reliable.py (the
                extractor that built the corpus). Tier 1 = the explicit
                suffrage regex; Tier 2 = women/female within 25 words of a
                voting-term substring, checked only when Tier 1 misses.
@@ -30,8 +31,10 @@ from pathlib import Path
 
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent
-CSV_PATH = ROOT.parent / "may24_rewrite" / "v8_corpus_classifications.csv"
+REPO = Path(__file__).resolve().parents[2]
+CLASSIFICATIONS_PATH = (
+    REPO / "data" / "womens_rights" / "speech_classifications.parquet"
+)
 
 EXPECTED_TOTAL = 6531
 EXPECTED_RELEVANT = 2942
@@ -91,14 +94,20 @@ def normalize_speaker(name) -> str | None:
 
 
 def load_corpus() -> pd.DataFrame:
-    df = pd.read_csv(CSV_PATH)
+    if not CLASSIFICATIONS_PATH.exists():
+        raise FileNotFoundError(
+            f"{CLASSIFICATIONS_PATH} not found; run scripts/download_data.py first"
+        )
+    df = pd.read_parquet(CLASSIFICATIONS_PATH)
     if len(df) != EXPECTED_TOTAL:
         raise AssertionError(
-            f"Expected {EXPECTED_TOTAL} rows in {CSV_PATH}, got {len(df)}"
+            f"Expected {EXPECTED_TOTAL} rows in {CLASSIFICATIONS_PATH}, got {len(df)}"
         )
 
+    # 14 relevant speeches have null sexism flags (schema-incomplete model
+    # output); the paper counts them as not sexist.
     for col in ("llm_hostile", "llm_benevolent"):
-        df[col] = df[col].map({True: True, False: False, "True": True, "False": False})
+        df[col] = df[col].map({True: True, "True": True}).fillna(False).astype(bool)
 
     df["is_irrelevant"] = df["llm_stance"] == "irrelevant"
     n_relevant = int((~df["is_irrelevant"]).sum())

@@ -10,11 +10,11 @@ from pathlib import Path
 
 from huggingface_hub import hf_hub_download
 
-REPO_ID = "HF_USER/hansard-gendered-corpus"
+REPO_ID = "omarkhursheed/hansard-gendered-corpus"
 DEST = Path(__file__).resolve().parents[1] / "data" / "womens_rights"
 
 FILES = [
-    "womens_rights/v8_corpus_classifications.parquet",
+    "womens_rights/speech_classifications.parquet",
     "womens_rights/corpus_with_context.parquet",
 ]
 

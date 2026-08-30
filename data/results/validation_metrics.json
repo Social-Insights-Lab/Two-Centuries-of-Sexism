@@ -1,0 +1,313 @@
+{
+  "n_validation": 300,
+  "claude": {
+    "stance": {
+      "n": 300,
+      "agree_pct": 0.833,
+      "kappa": 0.711,
+      "per_class": {
+        "for": {
+          "P": 0.82,
+          "R": 0.79,
+          "F1": 0.8,
+          "n": 96
+        },
+        "against": {
+          "P": 0.81,
+          "R": 0.7,
+          "F1": 0.75,
+          "n": 30
+        },
+        "both": {
+          "P": 0.4,
+          "R": 0.15,
+          "F1": 0.22,
+          "n": 13
+        },
+        "irrelevant": {
+          "P": 0.86,
+          "R": 0.94,
+          "F1": 0.9,
+          "n": 161
+        }
+      },
+      "macro": {
+        "P": 0.72,
+        "R": 0.65,
+        "F1": 0.67
+      },
+      "weighted": {
+        "P": 0.82,
+        "R": 0.83,
+        "F1": 0.82
+      }
+    },
+    "hostile": {
+      "kappa": 0.543,
+      "precision": 0.86,
+      "recall": 0.43,
+      "f1": 0.57,
+      "n_pos_gold": 28,
+      "n_pos_pred": 14
+    },
+    "benevolent": {
+      "kappa": 0.463,
+      "precision": 0.72,
+      "recall": 0.43,
+      "f1": 0.53,
+      "n_pos_gold": 54,
+      "n_pos_pred": 32
+    },
+    "any_sexism": {
+      "kappa": 0.488,
+      "precision": 0.77,
+      "recall": 0.45,
+      "f1": 0.57,
+      "n_pos_gold": 66,
+      "n_pos_pred": 39
+    }
+  },
+  "gpt5": {
+    "stance": {
+      "n": 300,
+      "agree_pct": 0.82,
+      "kappa": 0.692,
+      "per_class": {
+        "for": {
+          "P": 0.8,
+          "R": 0.81,
+          "F1": 0.8,
+          "n": 96
+        },
+        "against": {
+          "P": 0.74,
+          "R": 0.57,
+          "F1": 0.64,
+          "n": 30
+        },
+        "both": {
+          "P": 0.5,
+          "R": 0.38,
+          "F1": 0.43,
+          "n": 13
+        },
+        "irrelevant": {
+          "P": 0.86,
+          "R": 0.91,
+          "F1": 0.88,
+          "n": 161
+        }
+      },
+      "macro": {
+        "P": 0.72,
+        "R": 0.67,
+        "F1": 0.69
+      },
+      "weighted": {
+        "P": 0.81,
+        "R": 0.82,
+        "F1": 0.82
+      }
+    },
+    "hostile": {
+      "kappa": 0.512,
+      "precision": 0.75,
+      "recall": 0.43,
+      "f1": 0.55,
+      "n_pos_gold": 28,
+      "n_pos_pred": 16
+    },
+    "benevolent": {
+      "kappa": 0.471,
+      "precision": 0.84,
+      "recall": 0.39,
+      "f1": 0.53,
+      "n_pos_gold": 54,
+      "n_pos_pred": 25
+    },
+    "any_sexism": {
+      "kappa": 0.491,
+      "precision": 0.85,
+      "recall": 0.42,
+      "f1": 0.57,
+      "n_pos_gold": 66,
+      "n_pos_pred": 33
+    }
+  },
+  "gemini": {
+    "stance": {
+      "n": 300,
+      "agree_pct": 0.703,
+      "kappa": 0.533,
+      "per_class": {
+        "for": {
+          "P": 0.66,
+          "R": 0.78,
+          "F1": 0.71,
+          "n": 96
+        },
+        "against": {
+          "P": 0.85,
+          "R": 0.57,
+          "F1": 0.68,
+          "n": 30
+        },
+        "both": {
+          "P": 0.11,
+          "R": 0.31,
+          "F1": 0.16,
+          "n": 13
+        },
+        "irrelevant": {
+          "P": 0.89,
+          "R": 0.71,
+          "F1": 0.79,
+          "n": 161
+        }
+      },
+      "macro": {
+        "P": 0.63,
+        "R": 0.59,
+        "F1": 0.59
+      },
+      "weighted": {
+        "P": 0.78,
+        "R": 0.7,
+        "F1": 0.73
+      }
+    },
+    "hostile": {
+      "kappa": 0.416,
+      "precision": 0.34,
+      "recall": 0.89,
+      "f1": 0.5,
+      "n_pos_gold": 28,
+      "n_pos_pred": 73
+    },
+    "benevolent": {
+      "kappa": 0.381,
+      "precision": 0.5,
+      "recall": 0.48,
+      "f1": 0.49,
+      "n_pos_gold": 54,
+      "n_pos_pred": 52
+    },
+    "any_sexism": {
+      "kappa": 0.442,
+      "precision": 0.48,
+      "recall": 0.77,
+      "f1": 0.59,
+      "n_pos_gold": 66,
+      "n_pos_pred": 106
+    }
+  },
+  "deepseek": {
+    "stance": {
+      "n": 300,
+      "agree_pct": 0.807,
+      "kappa": 0.658,
+      "per_class": {
+        "for": {
+          "P": 0.88,
+          "R": 0.68,
+          "F1": 0.76,
+          "n": 96
+        },
+        "against": {
+          "P": 0.7,
+          "R": 0.63,
+          "F1": 0.67,
+          "n": 30
+        },
+        "both": {
+          "P": 0.33,
+          "R": 0.15,
+          "F1": 0.21,
+          "n": 13
+        },
+        "irrelevant": {
+          "P": 0.81,
+          "R": 0.97,
+          "F1": 0.88,
+          "n": 161
+        }
+      },
+      "macro": {
+        "P": 0.68,
+        "R": 0.61,
+        "F1": 0.63
+      },
+      "weighted": {
+        "P": 0.8,
+        "R": 0.81,
+        "F1": 0.79
+      }
+    },
+    "hostile": {
+      "kappa": 0.639,
+      "precision": 0.8,
+      "recall": 0.57,
+      "f1": 0.67,
+      "n_pos_gold": 28,
+      "n_pos_pred": 20
+    },
+    "benevolent": {
+      "kappa": 0.246,
+      "precision": 0.77,
+      "recall": 0.19,
+      "f1": 0.3,
+      "n_pos_gold": 54,
+      "n_pos_pred": 13
+    },
+    "any_sexism": {
+      "kappa": 0.477,
+      "precision": 0.9,
+      "recall": 0.39,
+      "f1": 0.55,
+      "n_pos_gold": 66,
+      "n_pos_pred": 29
+    }
+  },
+  "pairwise_stance_kappa": {
+    "human-claude": {
+      "n": 300,
+      "kappa": 0.711
+    },
+    "human-gpt5": {
+      "n": 300,
+      "kappa": 0.692
+    },
+    "human-gemini": {
+      "n": 300,
+      "kappa": 0.533
+    },
+    "human-deepseek": {
+      "n": 300,
+      "kappa": 0.658
+    },
+    "claude-gpt5": {
+      "n": 300,
+      "kappa": 0.739
+    },
+    "claude-gemini": {
+      "n": 300,
+      "kappa": 0.593
+    },
+    "claude-deepseek": {
+      "n": 300,
+      "kappa": 0.777
+    },
+    "gpt5-gemini": {
+      "n": 300,
+      "kappa": 0.605
+    },
+    "gpt5-deepseek": {
+      "n": 300,
+      "kappa": 0.709
+    },
+    "gemini-deepseek": {
+      "n": 300,
+      "kappa": 0.555
+    }
+  }
+}

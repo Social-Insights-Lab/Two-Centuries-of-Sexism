@@ -1,12 +1,11 @@
 """
-Rebuttal check 2 (Reviewer xe7f): are the headline per-speech results driven
-by prolific speakers? Recompute every headline proportion with one vote per
-speaker and compare against the paper's per-speech numbers.
+Speaker-level aggregation (Appendix L): are the headline per-speech results
+driven by prolific speakers? Recompute every headline proportion with one
+vote per speaker and compare against the paper's per-speech numbers.
 
 Step 0 verifies the per-speech baseline against the exact numbers in the
-resubmitted paper (tex_snippets.md); the script aborts if any of them fail
-to reproduce, so the speaker-level numbers can only ever be read alongside
-a confirmed baseline.
+paper; the script aborts if any of them fail to reproduce, so the
+speaker-level numbers can only ever be read alongside a confirmed baseline.
 
 Speaker-level aggregation:
   - unit = (speaker_key, gender); speeches with no parseable speaker are
@@ -16,28 +15,26 @@ Speaker-level aggregation:
   - "speaker-majority" = classify each speaker by their majority stance, then
     tabulate speakers.
 
-Reads:  experiments/may24_rewrite/v8_corpus_classifications.csv (via 00_shared)
-Writes: results_speaker_aggregation.json
-        results_speaker_aggregation.md
+Reads:  data/womens_rights/speech_classifications.parquet (via shared.py;
+        run scripts/download_data.py first)
+Writes: data/results/results_speaker_aggregation.{json,md}
 """
 
-import importlib.util
 import json
 from pathlib import Path
 
 import pandas as pd
 from scipy.stats import chi2_contingency
 
+import shared
+
 ROOT = Path(__file__).resolve().parent
-_spec = importlib.util.spec_from_file_location("shared", ROOT / "00_shared.py")
-shared = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(shared)
+RESULTS = ROOT.parents[1] / "data" / "results"
 
-JSON_OUT = ROOT / "results_speaker_aggregation.json"
-MD_OUT = ROOT / "results_speaker_aggregation.md"
+JSON_OUT = RESULTS / "results_speaker_aggregation.json"
+MD_OUT = RESULTS / "results_speaker_aggregation.md"
 
-# Every constant below is copied from experiments/may24_rewrite/tex_snippets.md
-# (the source of the numbers in the resubmitted paper).
+# Every constant below matches the numbers reported in the paper.
 PAPER = {
     "n_for": 2167,
     "n_against": 570,
@@ -282,7 +279,7 @@ def main():
         )
 
     results = {
-        "source": str(shared.CSV_PATH),
+        "source": str(shared.CLASSIFICATIONS_PATH),
         "baseline_verification": baseline_checks,
         "speaker_concentration": concentration,
         "stance_by_gender": stance_gender_rows,
@@ -297,9 +294,9 @@ def main():
     JSON_OUT.write_text(json.dumps(results, indent=2) + "\n")
 
     md = [
-        "# Speaker-level aggregation (rebuttal check for Reviewer xe7f)",
+        "# Speaker-level aggregation (Appendix L)",
         "",
-        f"Source: `{shared.CSV_PATH.name}`. Baseline per-speech numbers verified "
+        f"Source: `{shared.CLASSIFICATIONS_PATH.name}`. Baseline per-speech numbers verified "
         "against the paper before aggregating (see JSON for the check list).",
         f"Speaker unit = normalized (name, gender); {n_no_speaker} relevant "
         "speeches without a parseable speaker excluded from speaker-level rows.",

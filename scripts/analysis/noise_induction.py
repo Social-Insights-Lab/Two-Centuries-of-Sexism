@@ -1,7 +1,13 @@
-"""V8 noise induction robustness check.
+"""Noise induction robustness check (Appendix H).
 
-Same logic as experiments/20260313_paper_repro/noise_induction_robustness.py,
-but uses V8 stance labels from v8_stance.jsonl instead of V7 parquet.
+In each of 1,000 iterations, randomly flip 3% of speaker gender labels and
+recompute the gender-stance analysis, to test robustness of the gender gap
+to potential misgendering in the speaker-matching pipeline.
+
+Reads:  data/classifications/stance_llm.jsonl
+        data/womens_rights/speech_classifications.parquet (run
+        scripts/download_data.py first)
+Writes: data/results/noise_induction_results.json
 """
 import json
 import random
@@ -14,21 +20,22 @@ from scipy import stats
 SEED = 42
 N_ITERATIONS = 1000
 NOISE_RATE = 0.03
-OUTPUT_PATH = Path("experiments/may24_rewrite/noise_induction_v8_results.json")
+REPO = Path(__file__).resolve().parents[2]
+OUTPUT_PATH = REPO / "data" / "results" / "noise_induction_results.json"
 
 random.seed(SEED)
 np.random.seed(SEED)
 
-# Load V8 stance
+# Load stance labels
 stance = {}
-for line in open("experiments/may24_rewrite/v8_stance.jsonl"):
+for line in open(REPO / "data" / "classifications" / "stance_llm.jsonl"):
     r = json.loads(line)
     if r.get("parsed"):
         stance[r["speech_id"]] = r["parsed"]["stance"]
 
 # Merge with gender from corpus metadata
 txt = pd.read_parquet(
-    "outputs/llm_classification/suffrage_classified_with_text.parquet"
+    REPO / "data" / "womens_rights" / "speech_classifications.parquet"
 )[["speech_id", "gender"]]
 df = pd.DataFrame([{"speech_id": s, "stance": st}
                      for s, st in stance.items()]).merge(txt, on="speech_id", how="left")
@@ -36,7 +43,7 @@ df = pd.DataFrame([{"speech_id": s, "stance": st}
 relevant = df[df["stance"].isin(["for", "against", "both"])].copy()
 gendered = relevant[relevant["gender"].isin(["M", "F"])].copy()
 
-print(f"V8 gendered relevant speeches: {len(gendered)}")
+print(f"Gendered relevant speeches: {len(gendered)}")
 print(f"Noise rate: {NOISE_RATE} ({int(len(gendered) * NOISE_RATE)} flipped per iteration)")
 print(f"Iterations: {N_ITERATIONS}\n")
 

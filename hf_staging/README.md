@@ -42,12 +42,12 @@ corpus/
                                    # speaker composition
   house_members_gendered.parquet   # unified MP database with gender labels
 womens_rights/
-  corpus_with_context.parquet          # 6,531 speeches on women's political
-                                       # rights, each with up to 5 preceding
-                                       # and 5 following speeches
-  v8_corpus_classifications.parquet    # LLM stance (for/against/both/
-                                       # irrelevant) and ambivalent sexism
-                                       # labels with rationales and quotes
+  corpus_with_context.parquet       # 6,531 speeches on women's political
+                                    # rights, each with up to 5 preceding
+                                    # and 5 following speeches
+  speech_classifications.parquet    # LLM stance (for/against/both/
+                                    # irrelevant) and ambivalent sexism
+                                    # labels with rationales and quotes
 ```
 
 ## Usage
@@ -56,16 +56,16 @@ womens_rights/
 from datasets import load_dataset
 
 # Classified women's rights speeches (6,531 rows)
-ds = load_dataset("HF_USER/hansard-gendered-corpus",
-                  data_files="womens_rights/v8_corpus_classifications.parquet")
+ds = load_dataset("omarkhursheed/hansard-gendered-corpus",
+                  data_files="womens_rights/speech_classifications.parquet")
 
 # One year of the full corpus
-y1918 = load_dataset("HF_USER/hansard-gendered-corpus",
+y1918 = load_dataset("omarkhursheed/hansard-gendered-corpus",
                      data_files="corpus/speeches/speeches_1918.parquet")
 
 # A range of years
 franchise_era = load_dataset(
-    "HF_USER/hansard-gendered-corpus",
+    "omarkhursheed/hansard-gendered-corpus",
     data_files=[f"corpus/speeches/speeches_{y}.parquet"
                 for y in range(1910, 1929)])
 ```

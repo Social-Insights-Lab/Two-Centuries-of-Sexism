@@ -1,0 +1,29 @@
+V8 Inter-Annotator Agreement (n=300)
+============================================================
+
+Top-level kappa (Author 1 vs Author 2):
+  Stance (4-class)           agree=238/300 (79.3%)  kappa=0.644
+  Hostile (binary)           agree=273/300 (91.0%)  kappa=0.302
+  Benevolent (binary)        agree=250/300 (83.3%)  kappa=0.270
+  Sexist (derived)           agree=244/300 (81.3%)  kappa=0.338
+
+Stance confusion (rows=Author 1, cols=Author 2):
+                  for      agains        both      irrele
+  for               65           3           5          10
+  against            2          17           1           2
+  both               5           4           6           2
+  irreleva          20           5           3         150
+
+Per-subcategory agreement:
+  dominative_paternalism                         A1=  7  A2= 25  kappa=0.222
+  competitive_gender_differentiation             A1=  5  A2= 20  kappa=0.219
+  heterosexual_hostility                         A1=  1  A2=  3  kappa=-0.005
+  protective_paternalism                         A1= 13  A2= 29  kappa=-0.013
+  complementary_gender_differentiation           A1= 17  A2= 33  kappa=0.308
+  heterosexual_intimacy                          A1=  0  A2=  9  kappa=0.000
+
+Disagreements: 106/300  (stance-only: 31, sexism-only: 44, both: 31)
+
+Distributions:
+  author_1: stance={'irrelevant': 178, 'for': 83, 'both': 17, 'against': 22}  hostile=12  benevolent=29  sexist=36
+  author_2: stance={'irrelevant': 164, 'for': 92, 'both': 15, 'against': 29}  hostile=29  benevolent=49  sexist=64

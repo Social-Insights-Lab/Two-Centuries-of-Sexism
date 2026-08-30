@@ -1,25 +1,26 @@
 """
-Build the gold label set for the 300-speech V8 validation sample.
+Build the gold label set for the 300-speech validation sample.
 
-For each speech in the validation_sample.parquet (n=300):
-- If Omar and Mandira agreed on every field (stance + hostile subs +
+For each speech in data/validation/validation_sample.parquet (n=300):
+- If the two annotators agreed on every field (stance + hostile subs +
   benevolent subs), the gold label IS that agreement.
 - If they disagreed on anything, the gold label is the consensus from
   consensus.jsonl produced by the resolution app.
 
-Output: experiments/may24_rewrite/gold.jsonl, one record per speech with
-the same schema as omar.jsonl / mandira.jsonl, plus a `provenance` field
-("agreement" or "consensus") for transparency.
+Reads:  data/annotations/author_1.jsonl, author_2.jsonl, consensus.jsonl
+        data/validation/validation_sample.parquet
+Writes: data/annotations/gold.jsonl, one record per speech with the same
+        schema as the annotator files, plus a `provenance` field
+        ("agreement" or "consensus").
 """
 import json
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
-V8_ROOT = ROOT.parent / "20260520_v8_500_validation"
-ANN = V8_ROOT / "annotations"
-OUT = ROOT / "gold.jsonl"
-SAMPLE = V8_ROOT / "validation_sample.parquet"
+REPO = Path(__file__).resolve().parents[2]
+ANN = REPO / "data" / "annotations"
+OUT = ANN / "gold.jsonl"
+SAMPLE = REPO / "data" / "validation" / "validation_sample.parquet"
 
 HOSTILE_SUBS = [
     "dominative_paternalism",
@@ -54,8 +55,8 @@ def derive(rec):
 def main():
     import pandas as pd
     sample = pd.read_parquet(SAMPLE)
-    omar = load_jsonl(ANN / "omar.jsonl")
-    mandira = load_jsonl(ANN / "mandira.jsonl")
+    author_1 = load_jsonl(ANN / "author_1.jsonl")
+    author_2 = load_jsonl(ANN / "author_2.jsonl")
     consensus = load_jsonl(ANN / "consensus.jsonl")
 
     n_total = len(sample)
@@ -64,8 +65,8 @@ def main():
 
     for _, row in sample.iterrows():
         sid = row["speech_id"]
-        o = omar.get(sid)
-        m = mandira.get(sid)
+        o = author_1.get(sid)
+        m = author_2.get(sid)
         if o is None or m is None:
             n_missing += 1
             continue

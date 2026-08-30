@@ -10,8 +10,8 @@ Covers:
     validation set, with Fisher's exact test (Appendix J)
 
 Inputs:
-  - v8_corpus_classifications.parquet (from the Hugging Face dataset;
-    see README for download instructions)
+  - data/womens_rights/speech_classifications.parquet (from the Hugging
+    Face dataset; run scripts/download_data.py first)
   - data/annotations/gold.jsonl (in this repository)
 
 Usage:
@@ -29,7 +29,7 @@ import pandas as pd
 from scipy import stats
 
 REPO = Path(__file__).resolve().parents[2]
-DEFAULT_CORPUS = REPO / "data" / "womens_rights" / "v8_corpus_classifications.parquet"
+DEFAULT_CORPUS = REPO / "data" / "womens_rights" / "speech_classifications.parquet"
 DEFAULT_GOLD = REPO / "data" / "annotations" / "gold.jsonl"
 
 RELEVANT = ["for", "against", "both"]

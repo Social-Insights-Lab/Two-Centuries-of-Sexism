@@ -1,9 +1,14 @@
 """
-Regenerate Figure 1 (figure_stance_temporal.pdf) from V8 stance data.
+Generate Figure 1 (figure_stance_temporal.pdf) from the stance labels.
 
 Left panel: absolute counts by decade (stacked).
 Right panel: percentage of relevant speeches by decade.
 Both panels mark the 1918 and 1928 Representation of the People Acts.
+
+Reads:  data/classifications/stance_llm.jsonl
+        data/womens_rights/speech_classifications.parquet (run
+        scripts/download_data.py first)
+Writes: data/results/figure_stance_temporal.{pdf,png}
 """
 import json
 from pathlib import Path
@@ -13,9 +18,9 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import numpy as np
 
-ROOT = Path(__file__).resolve().parent
-OUT_PDF = ROOT / "figure_stance_temporal.pdf"
-OUT_PNG = ROOT / "figure_stance_temporal.png"
+REPO = Path(__file__).resolve().parents[2]
+OUT_PDF = REPO / "data" / "results" / "figure_stance_temporal.pdf"
+OUT_PNG = REPO / "data" / "results" / "figure_stance_temporal.png"
 
 # Project palette (CLAUDE.md)
 COLORS = {
@@ -39,9 +44,9 @@ plt.rcParams.update({
 })
 
 
-def load_v8():
+def load_stance():
     stance = {}
-    for line in open(ROOT / "v8_stance.jsonl"):
+    for line in open(REPO / "data" / "classifications" / "stance_llm.jsonl"):
         r = json.loads(line)
         if r.get("parsed"):
             stance[r["speech_id"]] = r["parsed"]["stance"]
@@ -49,12 +54,12 @@ def load_v8():
 
 
 def main():
-    stance = load_v8()
-    print(f"V8 stance rows: {len(stance)}")
+    stance = load_stance()
+    print(f"Stance rows: {len(stance)}")
 
-    # Get year per speech_id from the original metadata
+    # Get year per speech_id from the corpus metadata
     txt = pd.read_parquet(
-        "outputs/llm_classification/suffrage_classified_with_text.parquet"
+        REPO / "data" / "womens_rights" / "speech_classifications.parquet"
     )[["speech_id", "year"]]
     df = pd.DataFrame([{"speech_id": s, "stance": st}
                         for s, st in stance.items()])

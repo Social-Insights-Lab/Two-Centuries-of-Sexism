@@ -1,15 +1,13 @@
 """
-Build corpus_with_context.parquet: 6,531 corpus speeches with proper 5-before +
-5-after context windows attached, using the same matching logic as
-experiments/20260520_v8_500_validation/01_create_sample.py so that LLM context
-matches what human annotators saw.
+Build corpus_with_context.parquet: the 6,531 keyword-extracted speeches with
+5-before + 5-after context windows attached, using the same matching logic as
+scripts/annotation/create_validation_sample.py so that LLM context matches
+what human annotators saw.
 
-The v7 pipeline's `context_text` column had "[No context available]" for ~58%
-of speeches even when the underlying debate-turns parquet contained context.
-This script rebuilds context for all 6,531 speeches from the turns parquet.
-
-Output:
-  experiments/may24_rewrite/corpus_with_context.parquet
+PROVENANCE ONLY: this script was run against internal working files that are
+not part of the release (pre-classification corpus exports and a debate-turns
+parquet). Its output IS released:
+data/womens_rights/corpus_with_context.parquet (on Hugging Face).
 
 Columns:
   speech_id, debate_id, target_text, preceding_speeches, following_speeches,
@@ -24,7 +22,7 @@ V7_PATH = Path("outputs/llm_classification/v7_notrunc_results.parquet")
 TXT_PATH = Path("outputs/llm_classification/suffrage_classified_with_text.parquet")
 TURNS_PATH = Path("outputs/llm_classification/suffrage_debates_with_turns.parquet")
 OUT_PATH = ROOT / "corpus_with_context.parquet"
-CONTEXT_WINDOW = 5  # matches 01_create_sample.py
+CONTEXT_WINDOW = 5  # matches create_validation_sample.py
 
 
 def attach_context_windows(sample: pd.DataFrame, turns: pd.DataFrame) -> pd.DataFrame:

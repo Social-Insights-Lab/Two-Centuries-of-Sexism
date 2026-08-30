@@ -18,7 +18,7 @@ prompts, human annotations, and result files.
 
 ### 1. Hansard gender-matched corpus (Hugging Face)
 
-`https://huggingface.co/datasets/HF_USER/hansard-gendered-corpus`
+`https://huggingface.co/datasets/omarkhursheed/hansard-gendered-corpus`
 
 - 6,783,015 speeches across 1,197,828 debates, 1803-2005, both chambers
 - Speaker metadata: canonical name, person id, party, constituency, gender
@@ -32,7 +32,7 @@ See [DATASHEET.md](DATASHEET.md) for the full schema and known limitations.
 
 - `corpus_with_context.parquet`: the 6,531 keyword-extracted speeches, each
   with up to 5 preceding and 5 following speeches as context
-- `v8_corpus_classifications.parquet`: one row per speech with speaker
+- `speech_classifications.parquet`: one row per speech with speaker
   metadata, LLM stance labels (for / against / both / irrelevant), hostile and
   benevolent sexism flags with subcategories, rationales, and supporting
   verbatim quotes
@@ -53,11 +53,11 @@ See [DATASHEET.md](DATASHEET.md) for the full schema and known limitations.
 from datasets import load_dataset
 
 # Classified women's rights speeches
-ds = load_dataset("HF_USER/hansard-gendered-corpus",
-                  data_files="womens_rights/v8_corpus_classifications.parquet")
+ds = load_dataset("omarkhursheed/hansard-gendered-corpus",
+                  data_files="womens_rights/speech_classifications.parquet")
 
 # One year of the full corpus
-speeches_1918 = load_dataset("HF_USER/hansard-gendered-corpus",
+speeches_1918 = load_dataset("omarkhursheed/hansard-gendered-corpus",
                              data_files="corpus/speeches/speeches_1918.parquet")
 ```
 
@@ -74,16 +74,18 @@ python scripts/download_data.py
 | Table 1 (dataset statistics) | `scripts/corpus/dataset_stats.py` |
 | Keyword extraction (Appendix A) | `scripts/extraction/extract_suffrage_reliable.py` |
 | Gender matching (Appendix B) | `scripts/corpus/` |
-| LLM classification (Appendix C) | `scripts/classification/03_run_v8_llm.py` |
-| Validation sampling and annotation | `scripts/annotation/` |
-| Gold labels and agreement (Tables 3-5) | `scripts/analysis/01_build_gold.py`, `02_llm_vs_gold.py` |
-| Baselines (Table 4) | `scripts/analysis/07_run_baselines.py` |
-| Cross-model runs (Tables 5, 8) | `scripts/classification/06_run_cross_llm.py` |
+| LLM classification (Appendix C) | `scripts/classification/run_llm_classification.py` |
+| Validation sampling and annotation apps | `scripts/annotation/` |
+| Gold labels | `scripts/analysis/build_gold.py` |
+| Inter-annotator agreement (Table 4 human row, sexism table) | `scripts/annotation/agreement.py` |
+| LLM vs gold: Tables 3, 5, 8, sexism validation | `scripts/analysis/validation_metrics.py` |
+| Baselines (Table 4) | `scripts/analysis/baselines.py` |
+| Cross-model runs (Tables 5, 8) | `scripts/classification/run_cross_llm.py` |
 | Tables 6, 7, 9; chi-squared, logistic regression, Fisher tests | `scripts/analysis/paper_stats.py` |
-| Sentiment confound (Appendix E) | `scripts/analysis/08_run_sentiment.py` |
-| Noise induction (Appendix H) | `scripts/analysis/noise_induction_v8.py` |
-| Irrelevant-rate and speaker aggregation (Appendices K, L) | `scripts/analysis/01_irrelevant_by_time.py`, `02_speaker_aggregation.py` |
-| Figure 1 | `scripts/figures/09_figure_stance_temporal.py` |
+| Sentiment confound (Appendix E) | `scripts/analysis/sentiment_confound.py` |
+| Noise induction (Appendix H) | `scripts/analysis/noise_induction.py` |
+| Irrelevant-rate and speaker aggregation (Appendices K, L) | `scripts/analysis/irrelevant_by_time.py`, `speaker_aggregation.py` |
+| Figure 1 | `scripts/figures/stance_temporal.py` |
 
 Classification scripts require API keys via environment variables
 (`HANSARD_ANTHROPIC_API_KEY`, `OPENROUTER_HANSARD_API_KEY`); analysis scripts

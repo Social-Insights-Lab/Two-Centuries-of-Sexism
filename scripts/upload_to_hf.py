@@ -8,7 +8,7 @@ Prereqs:
   External drive mounted at /Volumes/safety_project_backups
 
 Usage:
-  python scripts/upload_to_hf.py --repo-id HF_USER/hansard-gendered-corpus
+  python scripts/upload_to_hf.py --repo-id omarkhursheed/hansard-gendered-corpus
 """
 
 import argparse

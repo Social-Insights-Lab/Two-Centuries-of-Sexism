@@ -1,18 +1,18 @@
 """
-Create a random validation sample of 500 speeches from the keyword-extracted corpus.
+Create the random validation sample from the keyword-extracted corpus.
 
-Per coauthor decision (WhatsApp thread 2026-05-19): random sample from the
-6,531 keyword-extracted speeches, pre-classification. We do NOT stratify by
-LLM stance or sexism labels -- those are precisely what the validation is
-testing.
+The sample is drawn uniformly at random from the 6,531 keyword-extracted
+speeches, pre-classification. It is NOT stratified by LLM stance or sexism
+labels -- those are precisely what the validation is testing.
 
-The 100 speeches from the earlier pilot annotation study are excluded to
-maintain independence between the codebook-development sample and the
-validation sample.
+The 100 speeches from an earlier pilot annotation round (used for codebook
+development) are excluded to keep the validation sample independent.
 
-Output:
-  experiments/20260520_v8_500_validation/validation_sample_500.parquet
-  experiments/20260520_v8_500_validation/sampling_stats.json
+PROVENANCE ONLY: this script was run against internal working files that are
+not part of the release (the pre-classification corpus exports and the pilot
+sample). Its output IS released: data/validation/validation_sample.parquet.
+
+Writes: validation_sample.parquet, sampling_stats.json
 """
 import argparse
 import json

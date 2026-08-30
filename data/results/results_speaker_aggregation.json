@@ -1,5 +1,5 @@
 {
-  "source": "/Users/omarkhursheed/workplace/hansard-nlp-explorer/experiments/may24_rewrite/v8_corpus_classifications.csv",
+  "source": "/Users/omarkhursheed/workplace/Two-Centuries-of-Sexism/data/womens_rights/speech_classifications.parquet",
   "baseline_verification": [
     "OK  n_for: paper=2167 computed=2167",
     "OK  n_against: paper=570 computed=570",
@@ -164,8 +164,8 @@
       "n_speakers": 1104,
       "hostile_per_speech": 4.1,
       "hostile_speaker_mean": 4.3,
-      "benevolent_per_speech": 19.1,
-      "benevolent_speaker_mean": 20.5
+      "benevolent_per_speech": 19.0,
+      "benevolent_speaker_mean": 20.4
     },
     {
       "stance": "against",
@@ -175,8 +175,8 @@
       "n_speakers": 344,
       "hostile_per_speech": 43.5,
       "hostile_speaker_mean": 38.6,
-      "benevolent_per_speech": 34.2,
-      "benevolent_speaker_mean": 29.5
+      "benevolent_per_speech": 34.0,
+      "benevolent_speaker_mean": 29.4
     },
     {
       "stance": "both",
@@ -186,8 +186,8 @@
       "n_speakers": 159,
       "hostile_per_speech": 27.3,
       "hostile_speaker_mean": 29.3,
-      "benevolent_per_speech": 49.3,
-      "benevolent_speaker_mean": 52.0
+      "benevolent_per_speech": 48.8,
+      "benevolent_speaker_mean": 51.7
     }
   ],
   "sexist_mix_by_stance": [

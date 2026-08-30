@@ -1,19 +1,19 @@
 """
-Rebuttal check 1 (Reviewer 9ZNL): are the 55% irrelevant-classified speeches
-distributed uniformly across time periods and debate contexts, or could
-systematic filtering skew the composition of the final corpus?
+Distribution of irrelevant-classified speeches (Appendix K): are the 55%
+irrelevant-classified speeches distributed uniformly across time periods and
+debate contexts, or could systematic filtering skew the composition of the
+final corpus?
 
 Breakdowns of the irrelevant rate by decade, era, keyword tier, chamber, and
 speaker gender, plus chi-square tests of independence and a comparison of the
 era composition of the corpus before vs after the LLM relevance filter.
 
-Reads:  experiments/may24_rewrite/v8_corpus_classifications.csv (via 00_shared)
-Writes: results_irrelevant_by_time.json
-        results_irrelevant_by_time.md
-        fig_irrelevant_by_decade.png
+Reads:  data/womens_rights/speech_classifications.parquet (via shared.py;
+        run scripts/download_data.py first)
+Writes: data/results/results_irrelevant_by_time.{json,md}
+        data/results/fig_irrelevant_by_decade.png
 """
 
-import importlib.util
 import json
 from pathlib import Path
 
@@ -21,14 +21,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from scipy.stats import chi2_contingency
 
-ROOT = Path(__file__).resolve().parent
-_spec = importlib.util.spec_from_file_location("shared", ROOT / "00_shared.py")
-shared = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(shared)
+import shared
 
-JSON_OUT = ROOT / "results_irrelevant_by_time.json"
-MD_OUT = ROOT / "results_irrelevant_by_time.md"
-FIG_OUT = ROOT / "fig_irrelevant_by_decade.png"
+ROOT = Path(__file__).resolve().parent
+RESULTS = ROOT.parents[1] / "data" / "results"
+
+JSON_OUT = RESULTS / "results_irrelevant_by_time.json"
+MD_OUT = RESULTS / "results_irrelevant_by_time.md"
+FIG_OUT = RESULTS / "fig_irrelevant_by_decade.png"
 
 plt.rcParams["figure.dpi"] = 150
 plt.rcParams["savefig.dpi"] = 300
@@ -126,7 +126,7 @@ def main():
     )
 
     results = {
-        "source": str(shared.CSV_PATH),
+        "source": str(shared.CLASSIFICATIONS_PATH),
         "n_total": int(len(df)),
         "n_irrelevant": int(df["is_irrelevant"].sum()),
         "overall_irrelevant_pct": overall_pct,
@@ -144,9 +144,9 @@ def main():
     JSON_OUT.write_text(json.dumps(results, indent=2) + "\n")
 
     md = [
-        "# Irrelevant-rate distribution (rebuttal check for Reviewer 9ZNL)",
+        "# Irrelevant-rate distribution (Appendix K)",
         "",
-        f"Source: `{shared.CSV_PATH.name}` (n={len(df):,}; "
+        f"Source: `{shared.CLASSIFICATIONS_PATH.name}` (n={len(df):,}; "
         f"{int(df['is_irrelevant'].sum()):,} irrelevant = {overall_pct}%).",
         f"Tier re-derived from target_text with the canonical extractor logic; "
         f"{n_no_match} speeches matched neither tier.",

@@ -1,33 +1,34 @@
 """
-V8 two-pass Claude run over the keyword-extracted suffrage corpus.
+Two-pass Claude classification over the keyword-extracted corpus.
 
-Pass 1 (stance):  for / against / both / irrelevant  -- prompts/v8_stance.md
-Pass 2 (sexism):  multi-label AST hostile/benevolent with subcategories
-                  -- prompts/v8_sexism.md
+Pass 1 (stance):  for / against / both / irrelevant  -- prompts/stance.md
+Pass 2 (sexism):  multi-label hostile/benevolent with subcategories
+                  -- prompts/sexism.md
                   only run on speeches Pass 1 marked as for / against / both.
 
 Uses the Anthropic SDK with:
   - Structured outputs via strict tool_use (no JSON parse failures)
   - Prompt caching on the (frozen) system prompt + tool definition
   - AsyncAnthropic for concurrent requests
-  - Project-specific HANSARD_ANTHROPIC_API_KEY (does not override the
-    global ANTHROPIC_API_KEY used by Claude Code etc.)
+  - API key from the HANSARD_ANTHROPIC_API_KEY environment variable
 
-Outputs (checkpointed JSONL, resumable):
-  experiments/may24_rewrite/v8_stance.jsonl
-  experiments/may24_rewrite/v8_sexism.jsonl
-
-Each line is one speech result. Re-runs skip rows already present.
+Reads:  prompts/stance.md, prompts/sexism.md
+        data/validation/validation_sample.parquet (--scope validation)
+        data/womens_rights/corpus_with_context.parquet (--scope corpus;
+        run scripts/download_data.py first)
+Writes (checkpointed JSONL, resumable; re-runs skip rows already present):
+  data/classifications/stance_llm.jsonl
+  data/classifications/sexism_llm.jsonl
 
 Usage:
   # 300-speech validation set only (default):
-  python experiments/may24_rewrite/03_run_v8_llm.py --scope validation
+  python scripts/classification/run_llm_classification.py --scope validation
 
   # Full corpus (~6,531 speeches):
-  python experiments/may24_rewrite/03_run_v8_llm.py --scope corpus
+  python scripts/classification/run_llm_classification.py --scope corpus
 
   # Smoke test (first 5 speeches):
-  python experiments/may24_rewrite/03_run_v8_llm.py --scope validation --limit 5
+  python scripts/classification/run_llm_classification.py --scope validation --limit 5
 """
 import argparse
 import asyncio
@@ -40,13 +41,13 @@ from pathlib import Path
 import anthropic
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent
-PROMPTS = Path("prompts")
-V8_VALIDATION = ROOT.parent / "20260520_v8_500_validation" / "validation_sample.parquet"
-CORPUS_WITH_CONTEXT = ROOT / "corpus_with_context.parquet"
+REPO = Path(__file__).resolve().parents[2]
+PROMPTS = REPO / "prompts"
+VALIDATION = REPO / "data" / "validation" / "validation_sample.parquet"
+CORPUS_WITH_CONTEXT = REPO / "data" / "womens_rights" / "corpus_with_context.parquet"
 
-STANCE_OUT = ROOT / "v8_stance.jsonl"
-SEXISM_OUT = ROOT / "v8_sexism.jsonl"
+STANCE_OUT = REPO / "data" / "classifications" / "stance_llm.jsonl"
+SEXISM_OUT = REPO / "data" / "classifications" / "sexism_llm.jsonl"
 
 MODEL = "claude-sonnet-4-6"  # same model the paper reports
 API_KEY_ENV = "HANSARD_ANTHROPIC_API_KEY"
@@ -62,7 +63,7 @@ STANCE_TOOL = {
     "name": "classify_stance",
     "description": (
         "Record the stance classification for the parliamentary speech under "
-        "Pass 1 of the V8 validation. Apply this tool exactly once per call."
+        "Pass 1 (stance classification). Apply this tool exactly once per call."
     ),
     "strict": True,
     "input_schema": {
@@ -302,7 +303,7 @@ async def classify(
 
 async def pass1_stance(speeches, concurrency, dry_run=False) -> None:
     system, user_tpl = split_system_user(
-        extract_prompt_body(PROMPTS / "v8_stance.md")
+        extract_prompt_body(PROMPTS / "stance.md")
     )
     done = load_done(STANCE_OUT)
     remaining = [s for s in speeches if s["speech_id"] not in done]
@@ -378,7 +379,7 @@ def relevant_speeches_from_stance(stance_jsonl: Path, all_speeches) -> list:
 
 async def pass2_sexism(speeches, concurrency, dry_run=False) -> None:
     system, user_tpl = split_system_user(
-        extract_prompt_body(PROMPTS / "v8_sexism.md")
+        extract_prompt_body(PROMPTS / "sexism.md")
     )
     done = load_done(SEXISM_OUT)
     remaining = [s for s in speeches if s["speech_id"] not in done]
@@ -438,7 +439,7 @@ def load_validation() -> list:
     """Load 300-speech validation set with proper 5+5 context built from the
     turns parquet (overrides the validation parquet's stored context_text,
     which inherits the speech_id-misalignment bug)."""
-    val = pd.read_parquet(V8_VALIDATION)[["speech_id"]]
+    val = pd.read_parquet(VALIDATION)[["speech_id"]]
     corpus = pd.read_parquet(CORPUS_WITH_CONTEXT)[
         ["speech_id", "target_text", "context_text"]
     ]
@@ -471,7 +472,7 @@ def main() -> None:
                     help="Cap number of speeches (for smoke testing)")
     ap.add_argument("--concurrency", type=int, default=DEFAULT_CONCURRENCY)
     ap.add_argument("--skip-stance", action="store_true",
-                    help="Skip Pass 1 (use existing v8_stance.jsonl)")
+                    help="Skip Pass 1 (use existing stance_llm.jsonl)")
     ap.add_argument("--skip-sexism", action="store_true", help="Skip Pass 2")
     ap.add_argument("--dry-run", action="store_true",
                     help="Show counts; do not call the API")
