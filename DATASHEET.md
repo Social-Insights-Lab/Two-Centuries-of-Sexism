@@ -104,6 +104,11 @@ first; sexism only for non-irrelevant speeches), validated against a
 300-speech expert-annotated set (stance kappa 0.711 vs human consensus;
 see the paper for full validation detail including sexism agreement).
 
+Subset speech_ids join the corpus/ files directly for 6,501 of 6,531
+speeches; the remaining 30 have slightly shifted speech numbering within the
+same debate_id (speech-segmentation differences between corpus builds) and
+can be located by matching target_text within the debate.
+
 ## Provenance
 
 1. Debate HTML crawled from Historic Hansard (public government records).

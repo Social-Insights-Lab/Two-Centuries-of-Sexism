@@ -70,6 +70,13 @@ franchise_era = load_dataset(
                 for y in range(1910, 1929)])
 ```
 
+Download everything to disk instead (full corpus is ~9.4 GB):
+
+```bash
+hf download omarkhursheed/hansard-gendered-corpus --repo-type dataset \
+    --local-dir data --include "corpus/*" "womens_rights/*"
+```
+
 ## Key statistics
 
 | Metric | Value |

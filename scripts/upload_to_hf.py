@@ -18,8 +18,10 @@ from huggingface_hub import HfApi
 
 STAGING = Path(__file__).resolve().parents[1] / "hf_staging"
 DRIVE = Path("/Volumes/safety_project_backups/hansard-nlp-explorer/data-hansard")
-SPEECHES = DRIVE / "derived_v2" / "speeches_complete"
-DEBATES = DRIVE / "derived_v2" / "debates_complete"
+# derived_complete is the build the paper's numbers were computed from and
+# the one whose speech ids the classified subset references.
+SPEECHES = DRIVE / "derived_complete" / "speeches_complete"
+DEBATES = DRIVE / "derived_complete" / "debates_complete"
 MP_DB = DRIVE / "house_members_gendered_updated.parquet"
 
 

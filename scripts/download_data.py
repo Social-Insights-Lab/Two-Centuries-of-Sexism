@@ -1,32 +1,38 @@
-"""Download the women's rights subset files from Hugging Face into data/.
+"""Download the dataset from Hugging Face into data/.
 
-The full 9.4 GB corpus is not downloaded by default; see README for how to
-load it directly with the datasets library.
+By default fetches the women's rights subset (~320 MB), which is all the
+analysis scripts need. Pass --full to also download the full 6.78M-speech
+corpus (~9.4 GB) into data/corpus/.
+
+Usage:
+  python scripts/download_data.py           # subset only
+  python scripts/download_data.py --full    # subset + full corpus
 
 Requires: huggingface_hub (pip install huggingface_hub)
 """
 
+import argparse
 from pathlib import Path
 
-from huggingface_hub import hf_hub_download
+from huggingface_hub import snapshot_download
 
 REPO_ID = "omarkhursheed/hansard-gendered-corpus"
-DEST = Path(__file__).resolve().parents[1] / "data" / "womens_rights"
-
-FILES = [
-    "womens_rights/speech_classifications.parquet",
-    "womens_rights/corpus_with_context.parquet",
-]
+DATA = Path(__file__).resolve().parents[1] / "data"
 
 
 def main():
-    DEST.mkdir(parents=True, exist_ok=True)
-    for f in FILES:
-        path = hf_hub_download(repo_id=REPO_ID, filename=f, repo_type="dataset")
-        target = DEST / Path(f).name
-        if not target.exists():
-            target.symlink_to(path)
-        print(f"{f} -> {target}")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--full", action="store_true",
+                    help="also download the full corpus (~9.4 GB)")
+    args = ap.parse_args()
+
+    patterns = ["womens_rights/*"]
+    if args.full:
+        patterns.append("corpus/*")
+
+    snapshot_download(repo_id=REPO_ID, repo_type="dataset",
+                      local_dir=DATA, allow_patterns=patterns)
+    print(f"Downloaded {', '.join(patterns)} -> {DATA}")
 
 
 if __name__ == "__main__":

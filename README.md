@@ -61,11 +61,20 @@ speeches_1918 = load_dataset("omarkhursheed/hansard-gendered-corpus",
                              data_files="corpus/speeches/speeches_1918.parquet")
 ```
 
-Or fetch the subset files into `data/` for the analysis scripts:
+Or fetch the files into `data/`, where the scripts in this repo expect them:
 
 ```bash
+pip install huggingface_hub
+
+# Women's rights subset (~320 MB) -- enough for all analysis scripts
 python scripts/download_data.py
+
+# Subset plus the full 6.78M-speech corpus (~9.4 GB, into data/corpus/)
+python scripts/download_data.py --full
 ```
+
+Equivalent CLI: `hf download omarkhursheed/hansard-gendered-corpus
+--repo-type dataset --local-dir data --include "corpus/*" "womens_rights/*"`
 
 ## Reproducing the paper
 

@@ -1,13 +1,13 @@
 """
 Build corpus_with_context.parquet: the 6,531 keyword-extracted speeches with
-5-before + 5-after context windows attached, using the same matching logic as
-scripts/annotation/create_validation_sample.py so that LLM context matches
-what human annotators saw.
+5-before + 5-after context windows attached, drawn from the full corpus so
+that the LLM sees the same context human annotators saw.
 
-PROVENANCE ONLY: this script was run against internal working files that are
-not part of the release (pre-classification corpus exports and a debate-turns
-parquet). Its output IS released:
-data/womens_rights/corpus_with_context.parquet (on Hugging Face).
+Reads:  data/womens_rights/speech_classifications.parquet (speech ids,
+        debate ids, and target text of the extracted speeches)
+        data/corpus/speeches/speeches_*.parquet (full corpus; download the
+        corpus/ folder from the Hugging Face dataset first)
+Writes: data/womens_rights/corpus_with_context.parquet
 
 Columns:
   speech_id, debate_id, target_text, preceding_speeches, following_speeches,
@@ -17,11 +17,10 @@ from pathlib import Path
 
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent
-V7_PATH = Path("outputs/llm_classification/v7_notrunc_results.parquet")
-TXT_PATH = Path("outputs/llm_classification/suffrage_classified_with_text.parquet")
-TURNS_PATH = Path("outputs/llm_classification/suffrage_debates_with_turns.parquet")
-OUT_PATH = ROOT / "corpus_with_context.parquet"
+REPO = Path(__file__).resolve().parents[2]
+CLASSIFICATIONS = REPO / "data" / "womens_rights" / "speech_classifications.parquet"
+CORPUS_SPEECHES = REPO / "data" / "corpus" / "speeches"
+OUT_PATH = REPO / "data" / "womens_rights" / "corpus_with_context.parquet"
 CONTEXT_WINDOW = 5  # matches create_validation_sample.py
 
 
@@ -125,22 +124,37 @@ def format_context(preceding: list, following: list) -> str:
     return "\n".join(parts)
 
 
-def main() -> None:
-    print("Loading source parquets...")
-    v7 = pd.read_parquet(V7_PATH)
-    txt = pd.read_parquet(TXT_PATH)
-    turns = pd.read_parquet(TURNS_PATH)
-    print(f"  v7: {len(v7)}  txt: {len(txt)}  turns: {len(turns)}")
+def load_turns(base: pd.DataFrame) -> pd.DataFrame:
+    """Load every speech of every debate that contains an extracted speech,
+    from the per-year corpus files."""
+    debate_ids = set(base["debate_id"])
+    files = sorted(CORPUS_SPEECHES.glob("speeches_*.parquet"))
+    if not files:
+        raise SystemExit(f"No corpus files in {CORPUS_SPEECHES}; download the "
+                         "corpus/ folder from the Hugging Face dataset first")
+    cols = ["speech_id", "debate_id", "sequence_number", "speaker",
+            "text", "word_count"]
+    chunks = []
+    for f in files:
+        df = pd.read_parquet(f, columns=cols)
+        df = df[df["debate_id"].isin(debate_ids)]
+        if len(df):
+            chunks.append(df)
+    return pd.concat(chunks, ignore_index=True)
 
-    # Merge in metadata + target text from the txt parquet, dropping the
-    # original (buggy) context_text -- we'll rebuild it.
-    base = v7[["speech_id"]].merge(
-        txt[["speech_id", "debate_id", "target_text"]],
-        on="speech_id", how="left",
+
+def main() -> None:
+    print("Loading extracted speeches...")
+    base = pd.read_parquet(
+        CLASSIFICATIONS, columns=["speech_id", "debate_id", "target_text"]
     )
     missing = base["target_text"].isna().sum()
     if missing:
         raise SystemExit(f"FATAL: {missing} corpus speeches missing target_text")
+
+    print("Loading debate turns from the full corpus...")
+    turns = load_turns(base)
+    print(f"  extracted: {len(base)}  turns: {len(turns)}")
 
     print("Attaching 5+5 context windows...")
     base = attach_context_windows(base, turns)
@@ -152,20 +166,12 @@ def main() -> None:
         )
     ]
 
-    # Diagnostics: how much context now vs the old (buggy) parquet?
     new_with_ctx = (base["context_text"] != "[No context available]").sum()
-    old_with_ctx = (txt["context_text"].fillna("") != "[No context available]")
-    old_with_ctx = old_with_ctx.sum()
     print()
-    print("=== Coverage check ===")
-    print(f"  Old context_text usable (suffrage_classified_with_text):  "
-          f"{old_with_ctx:>5} / {len(txt)}")
-    print(f"  New context_text usable (corpus_with_context, this file): "
-          f"{new_with_ctx:>5} / {len(base)}")
+    print(f"  context_text usable: {new_with_ctx} / {len(base)}")
     usable_lens = base.loc[
         base["context_text"] != "[No context available]", "context_text"
     ].str.len()
-    print()
     print(f"  Median formatted context_text length (usable): "
           f"{usable_lens.median():.0f} chars")
 
