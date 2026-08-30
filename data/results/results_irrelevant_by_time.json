@@ -1,0 +1,363 @@
+{
+  "source": "/Users/omarkhursheed/workplace/hansard-nlp-explorer/experiments/may24_rewrite/v8_corpus_classifications.csv",
+  "n_total": 6531,
+  "n_irrelevant": 3589,
+  "overall_irrelevant_pct": 55.0,
+  "tier_no_match_count": 0,
+  "by_decade": [
+    {
+      "decade": 1800,
+      "n": 1,
+      "n_irrelevant": 1,
+      "irrelevant_pct": 100.0
+    },
+    {
+      "decade": 1810,
+      "n": 10,
+      "n_irrelevant": 10,
+      "irrelevant_pct": 100.0
+    },
+    {
+      "decade": 1820,
+      "n": 8,
+      "n_irrelevant": 8,
+      "irrelevant_pct": 100.0
+    },
+    {
+      "decade": 1830,
+      "n": 37,
+      "n_irrelevant": 31,
+      "irrelevant_pct": 83.8
+    },
+    {
+      "decade": 1840,
+      "n": 53,
+      "n_irrelevant": 48,
+      "irrelevant_pct": 90.6
+    },
+    {
+      "decade": 1850,
+      "n": 54,
+      "n_irrelevant": 44,
+      "irrelevant_pct": 81.5
+    },
+    {
+      "decade": 1860,
+      "n": 89,
+      "n_irrelevant": 71,
+      "irrelevant_pct": 79.8
+    },
+    {
+      "decade": 1870,
+      "n": 243,
+      "n_irrelevant": 82,
+      "irrelevant_pct": 33.7
+    },
+    {
+      "decade": 1880,
+      "n": 227,
+      "n_irrelevant": 121,
+      "irrelevant_pct": 53.3
+    },
+    {
+      "decade": 1890,
+      "n": 305,
+      "n_irrelevant": 120,
+      "irrelevant_pct": 39.3
+    },
+    {
+      "decade": 1900,
+      "n": 409,
+      "n_irrelevant": 199,
+      "irrelevant_pct": 48.7
+    },
+    {
+      "decade": 1910,
+      "n": 1396,
+      "n_irrelevant": 556,
+      "irrelevant_pct": 39.8
+    },
+    {
+      "decade": 1920,
+      "n": 576,
+      "n_irrelevant": 283,
+      "irrelevant_pct": 49.1
+    },
+    {
+      "decade": 1930,
+      "n": 563,
+      "n_irrelevant": 344,
+      "irrelevant_pct": 61.1
+    },
+    {
+      "decade": 1940,
+      "n": 348,
+      "n_irrelevant": 249,
+      "irrelevant_pct": 71.6
+    },
+    {
+      "decade": 1950,
+      "n": 257,
+      "n_irrelevant": 205,
+      "irrelevant_pct": 79.8
+    },
+    {
+      "decade": 1960,
+      "n": 298,
+      "n_irrelevant": 236,
+      "irrelevant_pct": 79.2
+    },
+    {
+      "decade": 1970,
+      "n": 313,
+      "n_irrelevant": 224,
+      "irrelevant_pct": 71.6
+    },
+    {
+      "decade": 1980,
+      "n": 413,
+      "n_irrelevant": 288,
+      "irrelevant_pct": 69.7
+    },
+    {
+      "decade": 1990,
+      "n": 671,
+      "n_irrelevant": 374,
+      "irrelevant_pct": 55.7
+    },
+    {
+      "decade": 2000,
+      "n": 260,
+      "n_irrelevant": 95,
+      "irrelevant_pct": 36.5
+    }
+  ],
+  "by_era": [
+    {
+      "era": "pre-1870",
+      "n": 252,
+      "n_irrelevant": 213,
+      "irrelevant_pct": 84.5
+    },
+    {
+      "era": "1870-1899",
+      "n": 775,
+      "n_irrelevant": 323,
+      "irrelevant_pct": 41.7
+    },
+    {
+      "era": "1900-1918",
+      "n": 1680,
+      "n_irrelevant": 716,
+      "irrelevant_pct": 42.6
+    },
+    {
+      "era": "1919-1928",
+      "n": 676,
+      "n_irrelevant": 302,
+      "irrelevant_pct": 44.7
+    },
+    {
+      "era": "1929-1950",
+      "n": 957,
+      "n_irrelevant": 631,
+      "irrelevant_pct": 65.9
+    },
+    {
+      "era": "post-1950",
+      "n": 2191,
+      "n_irrelevant": 1404,
+      "irrelevant_pct": 64.1
+    }
+  ],
+  "by_tier": [
+    {
+      "tier": "tier1",
+      "n": 2725,
+      "n_irrelevant": 1307,
+      "irrelevant_pct": 48.0
+    },
+    {
+      "tier": "tier2",
+      "n": 3806,
+      "n_irrelevant": 2282,
+      "irrelevant_pct": 60.0
+    }
+  ],
+  "by_tier_x_era": [
+    {
+      "era": "pre-1870",
+      "tier": "tier1",
+      "n": 150,
+      "n_irrelevant": 124,
+      "irrelevant_pct": 82.7
+    },
+    {
+      "era": "pre-1870",
+      "tier": "tier2",
+      "n": 102,
+      "n_irrelevant": 89,
+      "irrelevant_pct": 87.3
+    },
+    {
+      "era": "1870-1899",
+      "tier": "tier1",
+      "n": 410,
+      "n_irrelevant": 154,
+      "irrelevant_pct": 37.6
+    },
+    {
+      "era": "1870-1899",
+      "tier": "tier2",
+      "n": 365,
+      "n_irrelevant": 169,
+      "irrelevant_pct": 46.3
+    },
+    {
+      "era": "1900-1918",
+      "tier": "tier1",
+      "n": 1103,
+      "n_irrelevant": 418,
+      "irrelevant_pct": 37.9
+    },
+    {
+      "era": "1900-1918",
+      "tier": "tier2",
+      "n": 577,
+      "n_irrelevant": 298,
+      "irrelevant_pct": 51.6
+    },
+    {
+      "era": "1919-1928",
+      "tier": "tier1",
+      "n": 252,
+      "n_irrelevant": 71,
+      "irrelevant_pct": 28.2
+    },
+    {
+      "era": "1919-1928",
+      "tier": "tier2",
+      "n": 424,
+      "n_irrelevant": 231,
+      "irrelevant_pct": 54.5
+    },
+    {
+      "era": "1929-1950",
+      "tier": "tier1",
+      "n": 252,
+      "n_irrelevant": 160,
+      "irrelevant_pct": 63.5
+    },
+    {
+      "era": "1929-1950",
+      "tier": "tier2",
+      "n": 705,
+      "n_irrelevant": 471,
+      "irrelevant_pct": 66.8
+    },
+    {
+      "era": "post-1950",
+      "tier": "tier1",
+      "n": 558,
+      "n_irrelevant": 380,
+      "irrelevant_pct": 68.1
+    },
+    {
+      "era": "post-1950",
+      "tier": "tier2",
+      "n": 1633,
+      "n_irrelevant": 1024,
+      "irrelevant_pct": 62.7
+    }
+  ],
+  "by_chamber": [
+    {
+      "chamber": "Commons",
+      "n": 6531,
+      "n_irrelevant": 3589,
+      "irrelevant_pct": 55.0
+    }
+  ],
+  "by_gender": [
+    {
+      "gender": "F",
+      "n": 611,
+      "n_irrelevant": 222,
+      "irrelevant_pct": 36.3
+    },
+    {
+      "gender": "M",
+      "n": 5430,
+      "n_irrelevant": 3127,
+      "irrelevant_pct": 57.6
+    },
+    {
+      "gender": NaN,
+      "n": 490,
+      "n_irrelevant": 240,
+      "irrelevant_pct": 49.0
+    }
+  ],
+  "era_composition_pre_vs_post_filter": [
+    {
+      "era": "pre-1870",
+      "share_pre_filter_pct": 3.9,
+      "share_post_filter_pct": 1.3,
+      "shift_pp": -2.6
+    },
+    {
+      "era": "1870-1899",
+      "share_pre_filter_pct": 11.9,
+      "share_post_filter_pct": 15.4,
+      "shift_pp": 3.5
+    },
+    {
+      "era": "1900-1918",
+      "share_pre_filter_pct": 25.7,
+      "share_post_filter_pct": 32.8,
+      "shift_pp": 7.1
+    },
+    {
+      "era": "1919-1928",
+      "share_pre_filter_pct": 10.4,
+      "share_post_filter_pct": 12.7,
+      "shift_pp": 2.3
+    },
+    {
+      "era": "1929-1950",
+      "share_pre_filter_pct": 14.7,
+      "share_post_filter_pct": 11.1,
+      "shift_pp": -3.6
+    },
+    {
+      "era": "post-1950",
+      "share_pre_filter_pct": 33.5,
+      "share_post_filter_pct": 26.8,
+      "shift_pp": -6.7
+    }
+  ],
+  "chi2_independence_vs_irrelevant": {
+    "decade": {
+      "chi2": 599.64,
+      "p": 3.4246475272557546e-114,
+      "dof": 20,
+      "min_expected_cell": 0.5
+    },
+    "era": {
+      "chi2": 396.65,
+      "p": 1.5669038127334169e-83,
+      "dof": 5,
+      "min_expected_cell": 113.5
+    },
+    "tier": {
+      "chi2": 91.81,
+      "p": 9.539482754568672e-22,
+      "dof": 1,
+      "min_expected_cell": 1227.5
+    }
+  },
+  "median_word_count": {
+    "relevant": 657.5,
+    "irrelevant": 996.0
+  }
+}

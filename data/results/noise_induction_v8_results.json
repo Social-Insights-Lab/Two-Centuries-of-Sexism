@@ -1,0 +1,20 @@
+{
+  "seed": 42,
+  "n_iterations": 1000,
+  "noise_rate": 0.03,
+  "n_flipped_per_iteration": 80,
+  "n_gendered_speeches": 2692,
+  "baseline": {
+    "male_for_pct": 70.1,
+    "female_for_pct": 92.8,
+    "chi2": 86.75,
+    "p": 1.2315104997347443e-20
+  },
+  "noisy": {
+    "male_for_mean": 70.2,
+    "female_for_mean": 89.3,
+    "gap_mean": 19.1,
+    "chi2_mean": 68.99,
+    "pct_significant": 100.0
+  }
+}

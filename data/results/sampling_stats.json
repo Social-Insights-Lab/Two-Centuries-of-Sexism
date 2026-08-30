@@ -1,0 +1,36 @@
+{
+  "seed": 42,
+  "sample_size": 300,
+  "pool_size": 6431,
+  "excluded_pilot": true,
+  "excluded_count": 100,
+  "era_distribution": {
+    "1800-1869": 8,
+    "1870-1917": 104,
+    "1918-1927": 23,
+    "1928-1969": 86,
+    "1970-2005": 79
+  },
+  "llm_stance_counts": {
+    "for": 150,
+    "irrelevant": 116,
+    "against": 32,
+    "both": 2
+  },
+  "llm_binary_counts": {
+    "not_sexist": 249,
+    "sexist": 51
+  },
+  "llm_axis_a_counts": {
+    "none": 249,
+    "hostile": 28,
+    "benevolent": 23
+  },
+  "gender_counts": {
+    "M": 247,
+    "F": 34,
+    "null": 19
+  },
+  "word_count_median": 890.5,
+  "word_count_mean": 1412.3833333333334
+}

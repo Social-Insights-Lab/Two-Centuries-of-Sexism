@@ -1,0 +1,272 @@
+{
+  "source": "/Users/omarkhursheed/workplace/hansard-nlp-explorer/experiments/may24_rewrite/v8_corpus_classifications.csv",
+  "baseline_verification": [
+    "OK  n_for: paper=2167 computed=2167",
+    "OK  n_against: paper=570 computed=570",
+    "OK  n_both: paper=205 computed=205",
+    "OK  n_hostile: paper=392 computed=392",
+    "OK  n_benevolent: paper=706 computed=706",
+    "OK  n_sexist: paper=886 computed=886",
+    "OK  n_hostile_and_benevolent: paper=212 computed=212",
+    "OK  support_pct_gender_F: paper=93 computed=93",
+    "OK  support_pct_gender_M: paper=70 computed=70",
+    "OK  any_sexism_pct_for: paper=21 computed=21",
+    "OK  sexist_mix_for_hostile_only: paper=11 computed=11",
+    "OK  sexist_mix_for_benevolent_only: paper=81 computed=81",
+    "OK  sexist_mix_for_both: paper=8 computed=8",
+    "OK  any_sexism_pct_against: paper=54 computed=54",
+    "OK  sexist_mix_against_hostile_only: paper=37 computed=37",
+    "OK  sexist_mix_against_benevolent_only: paper=19 computed=19",
+    "OK  sexist_mix_against_both: paper=44 computed=44",
+    "OK  any_sexism_pct_both: paper=57 computed=57",
+    "OK  sexist_mix_both_hostile_only: paper=14 computed=14",
+    "OK  sexist_mix_both_benevolent_only: paper=52 computed=52",
+    "OK  sexist_mix_both_both: paper=34 computed=34"
+  ],
+  "speaker_concentration": {
+    "n_relevant_speeches": 2942,
+    "n_speeches_without_speaker": 0,
+    "n_unique_speakers": 1429,
+    "max_speeches_one_speaker": 32,
+    "median_speeches_per_speaker": 1.0,
+    "top10_speakers_share_pct": 7.7,
+    "speakers_with_one_speech": 926
+  },
+  "stance_by_gender": [
+    {
+      "gender": "F",
+      "n_speeches": 389,
+      "n_speakers": 168,
+      "for_pct_per_speech": 92.8,
+      "for_pct_speaker_mean": 92.5
+    },
+    {
+      "gender": "M",
+      "n_speeches": 2303,
+      "n_speakers": 1158,
+      "for_pct_per_speech": 70.1,
+      "for_pct_speaker_mean": 70.3
+    }
+  ],
+  "speaker_majority_chi2": {
+    "contingency": {
+      "F": {
+        "for": 153,
+        "not_for": 8
+      },
+      "M": {
+        "for": 802,
+        "not_for": 321
+      }
+    },
+    "n_tie_speakers_excluded": 43,
+    "chi2": 39.98,
+    "p": 2.571502050894194e-10,
+    "dof": 1
+  },
+  "majority_stance_by_gender": [
+    {
+      "gender": "F",
+      "n_speakers": 161,
+      "majority_for_pct": 95.0
+    },
+    {
+      "gender": "M",
+      "n_speakers": 1123,
+      "majority_for_pct": 71.4
+    }
+  ],
+  "majority_sexism_by_stance": [
+    {
+      "stance": "for",
+      "n_speakers": 1104,
+      "majority_sexist_pct": 18.5,
+      "exact_tie_pct": 5.3,
+      "ever_sexist_pct": 32.1
+    },
+    {
+      "stance": "against",
+      "n_speakers": 344,
+      "majority_sexist_pct": 47.4,
+      "exact_tie_pct": 5.2,
+      "ever_sexist_pct": 55.5
+    },
+    {
+      "stance": "both",
+      "n_speakers": 159,
+      "majority_sexist_pct": 56.0,
+      "exact_tie_pct": 6.9,
+      "ever_sexist_pct": 64.2
+    }
+  ],
+  "support_by_era_gender": [
+    {
+      "era": "pre-1870",
+      "F_per_speech": null,
+      "F_speaker_mean": null,
+      "F_n_speakers": 0,
+      "M_per_speech": 57.1,
+      "M_speaker_mean": 54.8,
+      "M_n_speakers": 31
+    },
+    {
+      "era": "1870-1899",
+      "F_per_speech": null,
+      "F_speaker_mean": null,
+      "F_n_speakers": 0,
+      "M_per_speech": 54.4,
+      "M_speaker_mean": 53.0,
+      "M_n_speakers": 224
+    },
+    {
+      "era": "1900-1918",
+      "F_per_speech": null,
+      "F_speaker_mean": null,
+      "F_n_speakers": 0,
+      "M_per_speech": 64.0,
+      "M_speaker_mean": 63.0,
+      "M_n_speakers": 382
+    },
+    {
+      "era": "1919-1928",
+      "F_per_speech": 91.7,
+      "F_speaker_mean": 95.2,
+      "F_n_speakers": 6,
+      "M_per_speech": 73.9,
+      "M_speaker_mean": 73.2,
+      "M_n_speakers": 209
+    },
+    {
+      "era": "1929-1950",
+      "F_per_speech": 96.6,
+      "F_speaker_mean": 91.7,
+      "F_n_speakers": 16,
+      "M_per_speech": 82.4,
+      "M_speaker_mean": 81.6,
+      "M_n_speakers": 125
+    },
+    {
+      "era": "post-1950",
+      "F_per_speech": 92.2,
+      "F_speaker_mean": 92.7,
+      "F_n_speakers": 151,
+      "M_per_speech": 90.6,
+      "M_speaker_mean": 89.0,
+      "M_n_speakers": 276
+    }
+  ],
+  "sexism_by_stance": [
+    {
+      "stance": "for",
+      "n_speeches": 2167,
+      "any_per_speech": 21.3,
+      "any_speaker_mean": 22.7,
+      "n_speakers": 1104,
+      "hostile_per_speech": 4.1,
+      "hostile_speaker_mean": 4.3,
+      "benevolent_per_speech": 19.1,
+      "benevolent_speaker_mean": 20.5
+    },
+    {
+      "stance": "against",
+      "n_speeches": 570,
+      "any_per_speech": 54.0,
+      "any_speaker_mean": 48.9,
+      "n_speakers": 344,
+      "hostile_per_speech": 43.5,
+      "hostile_speaker_mean": 38.6,
+      "benevolent_per_speech": 34.2,
+      "benevolent_speaker_mean": 29.5
+    },
+    {
+      "stance": "both",
+      "n_speeches": 205,
+      "any_per_speech": 56.6,
+      "any_speaker_mean": 59.4,
+      "n_speakers": 159,
+      "hostile_per_speech": 27.3,
+      "hostile_speaker_mean": 29.3,
+      "benevolent_per_speech": 49.3,
+      "benevolent_speaker_mean": 52.0
+    }
+  ],
+  "sexist_mix_by_stance": [
+    {
+      "stance": "for",
+      "n_sexist_speeches": 462,
+      "hostile_only_per_speech": 10.8,
+      "hostile_only_speaker_mean": 10.2,
+      "n_speakers": 354,
+      "benevolent_only_per_speech": 81.0,
+      "benevolent_only_speaker_mean": 81.4,
+      "both_hb_per_speech": 8.2,
+      "both_hb_speaker_mean": 8.3
+    },
+    {
+      "stance": "against",
+      "n_sexist_speeches": 308,
+      "hostile_only_per_speech": 37.0,
+      "hostile_only_speaker_mean": 39.1,
+      "n_speakers": 191,
+      "benevolent_only_per_speech": 19.5,
+      "benevolent_only_speaker_mean": 22.2,
+      "both_hb_per_speech": 43.5,
+      "both_hb_speaker_mean": 38.7
+    },
+    {
+      "stance": "both",
+      "n_sexist_speeches": 116,
+      "hostile_only_per_speech": 13.8,
+      "hostile_only_speaker_mean": 13.9,
+      "n_speakers": 102,
+      "benevolent_only_per_speech": 51.7,
+      "benevolent_only_speaker_mean": 51.1,
+      "both_hb_per_speech": 34.5,
+      "both_hb_speaker_mean": 35.0
+    }
+  ],
+  "hostile_share_by_era": [
+    {
+      "era": "pre-1870",
+      "n_sexist_speeches": 12,
+      "n_speakers": 11,
+      "hostile_share_per_speech": 41.7,
+      "hostile_share_speaker_mean": 40.9
+    },
+    {
+      "era": "1870-1899",
+      "n_sexist_speeches": 199,
+      "n_speakers": 130,
+      "hostile_share_per_speech": 59.8,
+      "hostile_share_speaker_mean": 55.4
+    },
+    {
+      "era": "1900-1918",
+      "n_sexist_speeches": 315,
+      "n_speakers": 199,
+      "hostile_share_per_speech": 48.6,
+      "hostile_share_speaker_mean": 43.1
+    },
+    {
+      "era": "1919-1928",
+      "n_sexist_speeches": 121,
+      "n_speakers": 93,
+      "hostile_share_per_speech": 38.8,
+      "hostile_share_speaker_mean": 34.2
+    },
+    {
+      "era": "1929-1950",
+      "n_sexist_speeches": 101,
+      "n_speakers": 72,
+      "hostile_share_per_speech": 26.7,
+      "hostile_share_speaker_mean": 28.7
+    },
+    {
+      "era": "post-1950",
+      "n_sexist_speeches": 138,
+      "n_speakers": 115,
+      "hostile_share_per_speech": 29.7,
+      "hostile_share_speaker_mean": 30.9
+    }
+  ]
+}

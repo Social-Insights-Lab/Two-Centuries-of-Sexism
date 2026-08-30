@@ -1,0 +1,104 @@
+{
+  "majority": {
+    "name": "Majority class",
+    "n": 300,
+    "agree": 161,
+    "agree_pct": 0.5367,
+    "kappa": 0.0,
+    "macro_f1": 0.1746,
+    "per_class": {
+      "for": {
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
+        "n_gold": 96
+      },
+      "against": {
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
+        "n_gold": 30
+      },
+      "both": {
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
+        "n_gold": 13
+      },
+      "irrelevant": {
+        "P": 0.5367,
+        "R": 1.0,
+        "F1": 0.6985,
+        "n_gold": 161
+      }
+    }
+  },
+  "tfidf_logreg": {
+    "name": "TF-IDF + LogReg (5-fold CV)",
+    "n": 300,
+    "agree": 206,
+    "agree_pct": 0.6867,
+    "kappa": 0.4189,
+    "macro_f1": 0.3793,
+    "per_class": {
+      "for": {
+        "P": 0.6044,
+        "R": 0.5729,
+        "F1": 0.5882,
+        "n_gold": 96
+      },
+      "against": {
+        "P": 0.2857,
+        "R": 0.0667,
+        "F1": 0.1081,
+        "n_gold": 30
+      },
+      "both": {
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
+        "n_gold": 13
+      },
+      "irrelevant": {
+        "P": 0.7376,
+        "R": 0.9255,
+        "F1": 0.8209,
+        "n_gold": 161
+      }
+    }
+  },
+  "deberta_zero_shot": {
+    "name": "DeBERTa-v3 zero-shot (NLI)",
+    "n": 300,
+    "agree": 151,
+    "agree_pct": 0.5033,
+    "kappa": 0.2689,
+    "macro_f1": 0.3752,
+    "per_class": {
+      "for": {
+        "P": 0.6182,
+        "R": 0.3542,
+        "F1": 0.4503,
+        "n_gold": 96
+      },
+      "against": {
+        "P": 0.5714,
+        "R": 0.1333,
+        "F1": 0.2162,
+        "n_gold": 30
+      },
+      "both": {
+        "P": 0.0693,
+        "R": 0.5385,
+        "F1": 0.1228,
+        "n_gold": 13
+      },
+      "irrelevant": {
+        "P": 0.7737,
+        "R": 0.6584,
+        "F1": 0.7114,
+        "n_gold": 161
+      }
+    }
+  }
+}

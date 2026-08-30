@@ -1,0 +1,10 @@
+# Large files live on Hugging Face, staged locally here before upload
+hf_staging/womens_rights/
+
+# Local data fetched by scripts/download_data.py
+data/womens_rights/
+
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
